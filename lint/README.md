@@ -20,6 +20,11 @@ The structure of this section includes:
 
 - [References](#References)
 
+TODO:
+
+- Configure [stylelint](https://stylelint.io/)
+- Configure pre-commit hooks (for instance, [lint-staged](https://github.com/okonet/lint-staged), [pre-commit](https://github.com/observing/pre-commit) or [husky](https://github.com/typicode/husky#readme))
+
 ---
 
 # Using ESLint and Prettier with TypeScript
@@ -28,7 +33,7 @@ This steps aim to help you install the necessary dependencies to run ESLint in y
 
 ## Why ESLint instead of TSLint ?
 
-In spite of TSLint is currently the standard of linting TypeScript, this will change ans ESLint will soon replace TSLint. This means that TSLint will be **deprecated**. Check Palantir's blog post about [TSLint in 2019](https://medium.com/palantir/tslint-in-2019-1a144c2317a9).
+In spite of TSLint is currently the standard of linting TypeScript, this will change and ESLint will soon replace TSLint. This means that TSLint will be **deprecated**. Check Palantir's blog post about [TSLint in 2019](https://medium.com/palantir/tslint-in-2019-1a144c2317a9).
 
 ESLint is the most popular JavaScript linter, a tool that analyzes code for errors.
 
@@ -89,29 +94,29 @@ Now we need to create a `.eslintrc` file in our project root folder and tell **E
 ```javascript
 module.exports = {
   // Specifies the ESLint parser
-  parser: "@typescript-eslint/parser",
+  parser: '@typescript-eslint/parser',
   extends: [
     // Uses the recommended rules from the @typescript-eslint/eslint-plugin
-    "plugin:@typescript-eslint/recommended",
+    'plugin:@typescript-eslint/recommended',
     // Uses eslint-config-prettier to disable ESLint rules from @typescript-eslint/eslint-plugin that would conflict with prettier
-    "prettier/@typescript-eslint",
+    'prettier/@typescript-eslint',
     // Enables eslint-plugin-prettier and eslint-config-prettier. This will display prettier errors as ESLint errors. Make sure this is always the last configuration in the extends array.
-    "plugin:prettier/recommended"
+    'plugin:prettier/recommended',
   ],
   plugins: [
     // https://github.com/typescript-eslint/typescript-eslint/tree/master/packages/eslint-plugin#supported-rules
-    "@typescript-eslint"
+    '@typescript-eslint',
   ],
   parserOptions: {
     // Allows for the parsing of modern ECMAScript features
     ecmaVersion: 2018,
     // Allows for the use of imports
-    sourceType: "module"
+    sourceType: 'module',
   },
   rules: {
     // Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
     // e.g. "@typescript-eslint/explicit-function-return-type": "off",
-  }
+  },
 };
 ```
 
@@ -130,10 +135,10 @@ In order to configure Prettier, a `.prettierrc.js` file is required at the root 
 ```javascript
 module.exports = {
   semi: true,
-  trailingComma: "all",
+  trailingComma: 'all',
   singleQuote: true,
   printWidth: 100,
-  tabWidth: 2
+  tabWidth: 2,
 };
 ```
 
@@ -157,8 +162,6 @@ node_modules/*
 Then you can run `npm run lint`.
 
 # VS Code
-
-There is a awesome Extention for VSCode to integrate ESLint into our editor. Its called ESLint unsurprisingly and is published by Dirk Baeumer.
 
 ## Suggested Extensions
 

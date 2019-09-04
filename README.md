@@ -1,8 +1,8 @@
-# TaxIT 2019 Javascript lectures
+# TaxIT 2019 JavaScript lectures
 
 Welcome to this set of information about javascript lectures.
 
-1. [Lint](lint/README.md)
+1. [Lint](lint/)
 
 ## References
 
