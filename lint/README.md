@@ -53,10 +53,10 @@ Install dev dependencies:
 
 ```shell
 # using npm
-npm install eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin --only=dev
+$ npm install eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin --only=dev
 
 # or using yarn
-yarn add --dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
+$ yarn add --dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
 ```
 
 - **eslint:** the core ESLint linting library;
@@ -66,7 +66,7 @@ yarn add --dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
 You can create `.eslintrc` file manually, later, or initialize **ESLint** for project with:
 
 ```shell
-./node_modules/.bin/eslint --init
+$ ./node_modules/.bin/eslint --init
 ```
 
 ### Prettier
@@ -75,10 +75,10 @@ Install dev dependencies:
 
 ```shell
 # using npm
-npm install prettier eslint-config-prettier eslint-plugin-prettier --only=dev
+$ npm install prettier eslint-config-prettier eslint-plugin-prettier --only=dev
 
 # or using yarn
-yarn add --dev prettier eslint-config-prettier eslint-plugin-prettier
+$ yarn add --dev prettier eslint-config-prettier eslint-plugin-prettier
 ```
 
 - **prettier:** the core prettier library;

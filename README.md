@@ -3,6 +3,20 @@
 Welcome to this set of information about javascript lectures.
 
 1. [Lint](lint/)
+2. [JavaScript](javascript/)
+3. [Angular](angular/)
+
+## To serve the presentation slides with `reveal.js`
+
+```shell
+$ cd reveal.js
+# if is the 1st time
+$ npm install
+# run
+$ npm start
+```
+
+It will open a browser window in port `8000`, by default.
 
 ## References
 
