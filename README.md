@@ -3,8 +3,9 @@
 Welcome to this set of information about javascript lectures.
 
 1. [Lint](lint/)
-2. [JavaScript](javascript/)
-3. [Angular](angular/)
+2. [Git Hook](git-hook/)
+3. [JavaScript](javascript/)
+4. [Angular](angular/)
 
 ## To serve the presentation slides with `reveal.js`
 

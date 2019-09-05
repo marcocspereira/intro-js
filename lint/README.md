@@ -1,5 +1,7 @@
 Take it easy. This is still under construction. ⚠️ 🚧
 
+There are files [`.eslintrc.js`](.eslintrc.js), [`.eslintignore`](.eslintignore), [`.prettierrc.js`](.prettierrc.js) and [`.prettierignore`](.prettierignore) ready to be downloaded with some rules that will fit our develpment (we hope). Some rules already exist in `eslint:recommended`.
+
 ---
 
 The structure of this section includes:
@@ -21,11 +23,7 @@ The structure of this section includes:
 
 * [References](#References)
 
-It exists a file [`.eslintrc.js`](.eslintrc.js) ready to be downloaded with some rules that fit our develpment. Some already exist in `eslint:recommended`.
-
-TODO:
-
-- Configure pre-commit hooks (for instance, [lint-staged](https://github.com/okonet/lint-staged), [pre-commit](https://github.com/observing/pre-commit) or [husky](https://github.com/typicode/husky#readme))
+TODO: configure [stylelint](https://stylelint.io/).
 
 ---
 
