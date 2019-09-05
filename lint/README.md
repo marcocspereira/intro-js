@@ -1,3 +1,7 @@
+Take it easy. This is still under construction. ⚠️ 🚧
+
+---
+
 The structure of this section includes:
 
 - [Using ESLint and Prettier with TypeScript](#Using-ESLint-and-Prettier-with-TypeScript)
@@ -21,7 +25,6 @@ It exists a file [`.eslintrc.js`](.eslintrc.js) ready to be downloaded with some
 
 TODO:
 
-- Configure [stylelint](https://stylelint.io/)
 - Configure pre-commit hooks (for instance, [lint-staged](https://github.com/okonet/lint-staged), [pre-commit](https://github.com/observing/pre-commit) or [husky](https://github.com/typicode/husky#readme))
 
 ---
