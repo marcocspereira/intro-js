@@ -13,12 +13,9 @@ The structure of this section includes:
   - [Configuring Prettier](#Configuring-Prettier)
   - [package.json](#package.json)
 
-- [VSCode](#VS-Code)
+* [IDEs or Tex Editors](#IDEs-or-tex-editors)
 
-  - [Suggested Extensions](#Suggested-Extensions)
-  - [Suggested Configurations](#Suggested-Configurations)
-
-- [References](#References)
+* [References](#References)
 
 It exists a file [`.eslintrc.js`](.eslintrc.js) ready to be downloaded with some rules that fit our develpment. Some already exist in `eslint:recommended`.
 
@@ -164,14 +161,16 @@ node_modules/*
 
 Then you can run `npm run lint`.
 
-# VS Code
+# IDEs or Tex Editors
 
-## Suggested Extensions
+## VS Code
+
+### Suggested Extensions
 
 - [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) ([GitHub](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint))
 - [prettier-vscode](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) ([GitHub](https://github.com/prettier/prettier-vscode))
 
-## Suggested Configurations
+### Suggested Configurations
 
 Update your **settings.json** (Settings > Extensions > ESLint > settings.json):
 
@@ -191,6 +190,20 @@ Update your **settings.json** (Settings > Extensions > ESLint > settings.json):
 ```
 
 This allows you to **run ESLint's automatic fix command (i.e. eslint --fix) whenever a file is saved**.
+
+## Vim
+
+### vim-prettier
+
+[Vim-prettier](https://github.com/prettier/vim-prettier) is a plugin wrapper for prettier, pre-configured with custom default prettier settings.
+
+### ESLint in Vim
+
+Use this [tutorial](https://medium.com/@jimeno0/eslint-and-prettier-in-vim-neovim-7e45f85cf8f9).
+
+## RubyMine
+
+Use this [tutorial](https://www.jetbrains.com/help/ruby/eslint.html).
 
 # References
 

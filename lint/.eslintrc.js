@@ -134,7 +134,7 @@ module.exports = {
 		// require or disallow a space before function parenthesis
 		'space-before-function-paren': ['error', 'never'],
 		// disallow or enforce spaces inside of parentheses
-		'space-in-parens': ['error', 'always'],
+		'space-in-parens': ['error', 'never'],
 
 		// ECMAScript 6
 
