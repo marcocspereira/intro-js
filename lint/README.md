@@ -20,7 +20,7 @@ The structure of this section includes:
 
 - [References](#References)
 
-It exists a file `.eslintrc.js` ready to be downloaded with some rules that fit our develpment. Some already exist in `eslint:recommended`.
+It exists a file [`.eslintrc.js`](.eslintrc.js) ready to be downloaded with some rules that fit our develpment. Some already exist in `eslint:recommended`.
 
 TODO:
 
