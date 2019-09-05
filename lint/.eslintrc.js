@@ -23,7 +23,7 @@ module.exports = {
 		// Place to specify ESLint rules. Can be used to overwrite rules specified from the extended configs
 		// e.g. "@typescript-eslint/explicit-function-return-type": "off",
 		'arrow-body-style': ['error', 'always'],
-		'no-console': ['error', { allow: ['warn', 'error'] }],
+		'no-console': 'error',
 		// A for loop with a stop condition that can never be reached, such as one with a counter that moves in the wrong direction, will run infinitely.
 		'for-direction': 'error',
 	},

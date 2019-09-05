@@ -20,6 +20,8 @@ The structure of this section includes:
 
 - [References](#References)
 
+It exists a file `.eslintrc.js` ready to be downloaded with some rules that fit our develpment. Some already exist in `eslint:recommended`.
+
 TODO:
 
 - Configure [stylelint](https://stylelint.io/)
@@ -53,7 +55,7 @@ Install dev dependencies:
 
 ```shell
 # using npm
-$ npm install eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin --only=dev
+$ npm install eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin --save-dev
 
 # or using yarn
 $ yarn add --dev eslint @typescript-eslint/parser @typescript-eslint/eslint-plugin
@@ -75,7 +77,7 @@ Install dev dependencies:
 
 ```shell
 # using npm
-$ npm install prettier eslint-config-prettier eslint-plugin-prettier --only=dev
+$ npm install prettier eslint-config-prettier eslint-plugin-prettier --save-dev
 
 # or using yarn
 $ yarn add --dev prettier eslint-config-prettier eslint-plugin-prettier
