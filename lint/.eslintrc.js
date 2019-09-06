@@ -81,7 +81,10 @@ module.exports = {
 			},
 		],
 		// enforce consistent spacing between keys and values in object literal properties
-		'key-spacing': ['error', { beforeColon: false, afterColon: true, mode: 'strict' }],
+		'key-spacing': [
+			'error',
+			{ beforeColon: false, afterColon: true, mode: 'strict' },
+		],
 		// enforce consistent spacing before and after keywords
 		'keyword-spacing': [
 			'error',
@@ -94,7 +97,11 @@ module.exports = {
 			},
 		],
 		// enforce a maximum line length
-		'max-len': ['error', 80, { ignoreRegExpLiterals: true, ignoreComments: true }],
+		'max-len': [
+			'error',
+			80,
+			{ ignoreRegExpLiterals: true, ignoreComments: true },
+		],
 		// enforce a maximum number of parameters in function definitions
 		'max-params': ['error', 5],
 		// enforce a particular style for multiline comments

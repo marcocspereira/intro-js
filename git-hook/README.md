@@ -59,7 +59,7 @@ Update `package.json` to configure **Husky**:
     }
   },
   "lint-staged": {
-    "*.{js,ts}": ["./node_modules/.bin/eslint — fix", "git add"]
+    "*.{js,ts}": ["./node_modules/.bin/eslint . --fix", "git add"]
   }
 ```
 
@@ -68,3 +68,5 @@ Update `package.json` to configure **Husky**:
 - If error is found but fixable with `--fix`, Lint-staged will fix it,
 
 - but if not, husky will stop the process.
+
+Husky is much more powerful. It can be also used to run tests before push code to remote repository. 😶
