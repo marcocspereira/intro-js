@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+
+    <title>TaxIT 2019</title>
+
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/reveal.css" />
+    <link rel="stylesheet" href="css/theme/black.css" />
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/monokai.css" />
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement("link");
+      link.rel = "stylesheet";
+      link.type = "text/css";
+      link.href = window.location.search.match(/print-pdf/gi)
+        ? "css/print/pdf.css"
+        : "css/print/paper.css";
+      document.getElementsByTagName("head")[0].appendChild(link);
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>JavaScript</h1>
+          <img src="images/js_for_millenials.jpg" width="40%" height="40%" />
+        </section>
+
+        <section>
+          <section>
+            <h3>JavaScript Language Basics</h3>
+            <img src="images/hoping_this_works.jpg" width="35%" height="35%" />
+          </section>
+
+          <section>
+            <h3>What is JavaScript</h3>
+            <ul>
+              <li>Lightwight</li>
+              <li>Cross-platform</li>
+              <li>Object-oriented</li>
+            </ul>
+            <aside class="notes">
+              - Lightwight: não consome muita memória do computador.<br /><br />
+              - Cross-platform: pode ser usado em múltiplas plataformas e
+              sistemas, não apenas para web dev.<br /><br />
+              - Object-oriented: é basead a em objectos
+            </aside>
+          </section>
+
+          <section>
+            <h3>Primitive Data Types</h3>
+            <table>
+              <thead>
+                <td>Type</td>
+                <td>Values</td>
+              </thead>
+              <tr>
+                <td>Undefined</td>
+                <td>undefined</td>
+              </tr>
+              <tr>
+                <td>Null</td>
+                <td>null</td>
+              </tr>
+              <tr>
+                <td>Number</td>
+                <td>-1, 0, 1.5, 5.7e+308, -Infinity, +Infinity, NaN</td>
+              </tr>
+              <tr>
+                <td>String</td>
+                <td>'Ze', "Manel"</td>
+              </tr>
+              <tr>
+                <td>Boolean</td>
+                <td>true, false</td>
+              </tr>
+            </table>
+
+            <aside class="notes">
+              - A primitive value is an immutable piece of data that is
+              represented directly at the lowest level of the language
+              implementation. Não são objectos como a maioria do resto em js.<br />
+
+              - Undefined: Data type of a variable that does not have a value
+              yet. So is the value that is automatically assigned if a value is
+              not provided.<br /><br />
+              - Null: 'Non-existent' value that represents the intentional
+              absence of any object value<br /><br />
+              - Number: Floating point numbers, for decimal and integers. Always
+              floating point numbers. All have decimals even we sometimes don't
+              see or even don't define them.<br /><br />
+              - String: Sequence of characters, used for text<br /><br />
+              - Boolean: Logical data type that can only be true or false<br />
+            </aside>
+          </section>
+
+          <section>
+            <h3>Primitive Data Types</h3>
+            <img src="images/null_vs_undefined.jpg" width="50%" height="50%" />
+          </section>
+          <section width="100%">
+            <h3>Dynamic Typing</h3>
+            <pre><code data-trim data-line-numbers contenteditable="true">
+			  var taxit = 15;	// Number
+			  taxit = 'great';	// now is a String
+			  taxit = { members: 15, office: 'somewhere' }	// Object
+			</code></pre>
+            <div style="display: inline-block;" class="fragment fade-up">
+              How to return the type of a value?
+              <pre><code data-trim>
+				console.log(typeof taxit);
+				// result?
+			</code></pre>
+            </div>
+            <div style="display: inline-block;" class="fragment fade-up">
+              What if...
+              <pre><code data-trim>
+				var hello = 'Hi';
+				var size = 15;
+				console.log(hello + ' ' + size);
+				</code>
+				</pre>
+              "size" is a number but is logged as a string...Why?
+            </div>
+            <aside class="notes">
+              - JavaScript has dynamic typing: data types are automatically
+              assigned to variables. If later we assign another value with
+              another type, js will automatically change the data type of the
+              variable as well.<br /><br />
+
+              - No caso do exemplo anterior, converte o valor numérico em
+              string, de forma a concatenar a strings para ser impresso pelo
+              console.log que escreve...strings
+            </aside>
+          </section>
+
+          <section>
+            <h3>Type Coercion</h3>
+            <pre><code data-trim data-line-numbers contenteditable="true">
+				1 + 2 + '3'; // '33'
+				1 + '2' + 3; // '123'
+				1 + true + true + false; // 3
+				true + '1'; // 'true1'
+				1 + ''; / '1'
+				'5' * 3; // 15
+				'5' * false; // 0
+				2 / '2'; // 1
+				2 / 'a'; // NaN
+				2 + null + ''; // '2'
+				null + true; // 1
+			</code></pre>
+            <b>Type Coercion</b> works thanks to <b>==</b> operator. To avoid
+            type coercion, use strict equality <b>===</b>.
+          
+          <aside class="notes">
+            - Conversão implicita.<br /><br />
+            - JavaScript converte automaticamente de uns types pra outros, como
+            precisar.<br /><br />
+            - +: em JavaScript converte qualquer um dos operandos para string se
+            pelo menos um for string<br /><br />
+            - Numeros com booleans: booleans são coercidos para números pois são
+            considerados e implementados como valores numéricos com o digito
+            binário (bit)<br /><br />
+            - === verifica se o valor é o mesmo e se tem o mesmo tipo<br /><br />
+            - == verifica apenas se os valores podem ser coercidos um no outro
+          </aside>
+        </section>
+        <section>
+          <h5>Type Coercion</h5>
+          <h3>Falsy Values</h3>
+          <ul>
+            <li>false</li>
+            <li>0</li>
+            <li>'' or ""</li>
+            <li>null</li>
+            <li>undefined</li>
+            <li>NaN</li>
+		  </ul>
+		  <img src="images/not_a_pipe.jpg" width="40%" height="40%" />
+		  <h3>Truthy Values</h3>
+		  ! Falsey Values
+          <aside class="notes">
+			- The falsy values in JavaScript are values that can be coerced into false. There are six falsy values, with everything else being truthy.<br><br>
+			- You may be wondering why JavaScript has both null and undefined, and what the difference may be between the two.<br><br>
+			Typically, undefined is when a value has not been defined by the user. When accessing an index in an array or a key in an object that doesn’t exist, you may get undefined.
+			Similarly, if you have defined a variable or a flunction but you misspell it when trying to use it, you may get an error such as variable is not defined.<br><br>
+			Null, however, does not imply that a value has been forgotten to be declared or doesn’t exist.
+			Typically, a human has intentionally assigned a value to null to imply that the value should start out as null but may possibly change.
+		  </aside>
+        </section>
+      </div>
+    </div>
+
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        dependencies: [
+          { src: "plugin/markdown/marked.js" },
+          { src: "plugin/markdown/markdown.js" },
+          { src: "plugin/notes/notes.js", async: true },
+          { src: "plugin/highlight/highlight.js", async: true }
+        ]
+      });
+    </script>
+  </body>
+</html>
