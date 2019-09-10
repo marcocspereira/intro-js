@@ -223,8 +223,10 @@
               <li>Use when you want to create a function on the global <b>scope</b> and make it available throughout your code</li>
             </ul>
             <aside class="notes">
-              - <b>Function declarations/statements:</b> funções com nome que executam acções. Isto é, fazem coisas mas não produzem resultados imediatos.<br>
+              - <b>Function declarations/statements:</b> funções com nome que executam acções. Isto é, fazem coisas mas não produzem resultados imediatos.<br><br>
               - if...else, while loop e declaração de funções não produzem valores imediatos, sendo chamados de statements.<br><br>
+              - <b>Hoisting:</b> Specifically, all of the functions written with function declarations are “known” before any code is run.
+                This allows you to call a function before you declare. The objects are initialized at compile time and available anywhere in your file.
             </aside>
           </section>
 
@@ -239,9 +241,9 @@
                 add(1, 2);  // 3 :-)
               </code></pre>
               <ul>
-                <li>The name may be ommitted, making that funcation "anonymous"</li>
+                <li>The name may be ommitted, making that function "anonymous"</li>
                 <li>Do not <b>hoist</b>.</li>
-                <li>Use to avoid polluting the global scope.</li>
+                <li>Use to avoid polluting the global scope. (e.g. IIFE)</li>
               </ul>
               <pre><code data-trim data-line-numbers contenteditable="true">
                 add(1, 2);  // BOOM! :-(
@@ -251,10 +253,147 @@
               </code></pre>
               <aside class="notes">
                 - <b>Function expressions:</b> o nome pode ser emitido, tornando-as anónimas. Produzem sempre um valor. Sempre que o JavaScript espera um valor,
-                  temos que escrever uma expresão.<br><br>
-                
-                - Instead of your program being aware of many different functions, when you keep them anonymous, they are used and forgotten immediately.
+                  temos que escrever uma expresão.<br><br>                
+                - Instead of your program being aware of many different functions, when you keep them anonymous, they are used and forgotten immediately.<br><br>
+                - Which one you chose is almost entirely a matter of personal taste. I think the more important thing is to pick one style of 
+                  writing functions and stick with it throughout your script.<br><br>
+                - <b>IIFE:</b> Immediately Invoked Function Expressions.
                 </aside>
+            </section>
+
+            <!--IIE-->
+            <section>
+              <h5>Functions</h5>
+              <h3>IIFE</h3>
+              <pre><code data-trim data-line-numbers contenteditable="true">
+              (
+                function() {
+                  var team = 'taxit';
+                }
+              )();
+
+              console.log(team);  // undefined because it isn't available
+              </code></pre>
+              It allows to avoid global scope pollution.
+              <aside class="notes">
+                - This function will execute immediately<br><br>
+                - Extra parenthesis are required to tell the interpreter<br><br>
+                - This is a function expression and not a declaration
+              </aside>
+            </section>
+
+            <!--Arrays-->
+            <section>
+              <h3>Arrays</h3>
+              List-like **objects**
+              <pre><code data-trim data-line-numbers contenteditable="true">
+                var arr = [ 'taxit', 12, true, { slb: 38 } ];
+                arr[0]; // 'taxit'
+                arr[1]; // 12
+                arr[2]; // true
+                arr[3]; // { slb : 38 }
+                arr.length; // 4
+                typeof arr;     // ?
+                arr[9] = null;
+                arr.length;     // ?
+                typeof arr[4]; // ?
+              </code></pre>
+              <aside class="notes">
+                - object, 10, 5<br><br>
+              </aside>
+            </section>
+
+            <!--Arrays: Queues and Stacks-->
+            <section>
+              <h5>Arrays</h5>
+              <h3>Queues & Stacks</h3>
+              <table>
+                <tr><td>
+                  <pre><code data-trim data-line-numbers contenteditable="true">
+                    var queue = [];
+                    queue.push('s');
+                    queue.push('l');
+                    queue.push('b');
+
+                    queue.shift(); // 's'
+                    queue.shift(); // 'l'
+                    queue.shift(); // 'b'
+                    queue.shift(); // undefined
+                  </code></pre>
+                </td><td>
+                  <pre><code data-trim data-line-numbers contenteditable="true">
+                    var stack = [];
+                    stack.push('s');
+                    stack.push('l');
+                    stack.push('b');
+
+                    stack.pop(); // 'b'
+                    stack.pop(); // 'l'
+                    stack.pop(); // 'b'
+                    stack.pop(); // undefined
+                  </code></pre>
+                </td></tr>
+              </table>
+              <aside class="notes">
+                - object, 10, 5<br><br>
+              </aside>
+            </section>
+
+            <!-- Arrays: iteration and how to copy?-->
+            <section>
+              <h5>Arrays</h5>
+              <h3>Iteration</h3>
+              A classic for <b>loop works</b>, however, you can use a forEach (impossible to break early)
+              <pre><code data-trim data-line-numbers contenteditable="true">
+                words.forEach(function(word) {
+                  console.log(word + ' has ' + word.length + ' letters.');
+                });
+              </code></pre>
+              <div style="display: inline-block;" class="fragment fade-up">
+                <h3>How to copy an array?</h3>
+              </div><br>
+              <div style="display: inline-block;" class="fragment fade-up">
+                <pre><code data-trim data-line-numbers contenteditable="true">
+                  var a = [1, 9, 0, 4];
+                  var b = a;
+                  a.push(38);
+                  a = // ?
+                  b = // ?
+                </code></pre>
+              </div>
+              <aside class="notes">
+              **b = a.slice();** para cópia integral do array. Pode especificar (a partir de posicao, até posicao)<br><br>
+              Arrays sao mutaveis, estamos a mexer diretamente com referencias de memoria
+              </aside>
+            </section>
+
+            <!--References-->
+            <section>
+            <h3>References</h3>
+            colocar aqui exemplo/desenho para explicar rapidamente
+            </section>
+
+            <!--Chalange 1-->
+            <section>
+            <h3>Chalange 1</h3>
+            
+            </section>
+
+            <!--Objects-->
+            <section>
+              <h3>Objects</h3>
+            </section>
+
+
+           <!-- Behind the scenes--> 
+
+            <!--Scope-->
+            <section>
+              <h3>Scope</h3>
+              <img src="images/pretending.jpg" width="40%" height="40%" />
+              <aside class="notes">
+              - The region of the program where a binding between a variable and its name is valid
+              </aside>
             </section>
       </div>
     </div>
