@@ -658,6 +658,216 @@
             </aside>
           </section>
 
+          <!--Call Stack-->
+          <section>
+            <h5>Call Stack</h5>
+            <h3>Execution Context <br>and the<br> Execution Stack</h3>
+            <ul>
+              <li><span style="font-size: 20px;">Execution contexts are environments where JavaScript code run.</span></li>
+              <li><span style="font-size: 20px;">Image Execution Context like a box which store variables and which a piece of our code is evaluated and executed</span></li>
+            </ul>
+          </section>
+
+          <!--Call Stack-->
+          <section>
+            <h5>Execution Context and the Execution Stack</h5>
+            <ul>
+              <div style="display: inline-block; font-size:40px;" class="fragment fade-up">
+                <li>All JavaScript code runs within the scope of what is known as an <span style="color: yellow;">Execution Context</span></li>
+              </div>
+              <div style="display: inline-block; font-size:40px;" class="fragment fade-up">
+                <li>A <span style="color: yellow;">global execution context</span> (the default one) is created initially and pushed into the <span style="color: yellow;">call stack</span></li>
+              </div>
+              <div style="display: inline-block; font-size:40px;" class="fragment fade-up">
+                <li>Everytime a function is <span style="color: yellow;">invoked</span> a new execution context is created and pushed into the call stack Everytime a function <span style="color: yellow;">returns</span> its execution context is popped from the call stack</li>
+              </div>
+            </ul>
+            <div style="display: inline-block;" class="fragment fade-up">
+              <span style="font-size:20px;">All the code that is not inside of any function is executed.</span><br>
+              <span style="font-size:20px;">Everything declared in the global context, automatically gets attached to the <span style="color:yellow;">window</span> object (for browsers):</span>
+              <pre><code data-trim data-line-numbers contenteditable="true">
+                var ze = 1;
+                ze == window.ze // true
+              </code></pre>
+            </div>
+            <aside class="notes">
+              - <b>Global context</b> não está em funções e está associado ao <b>global object</b>, aka window nos browsers.
+            </aside>
+          </section>
+
+          <!--Call Stack: Execution Context-->
+          <section>
+            <h5>Execution Context</h5>
+            <img src="images/execution_context.gif" width="100%" height="100%">
+          </section>
+
+          <!--Execution Context, como se passa-->
+          <section>
+            <h5>Execution Context: how exactly that happens?</h5>
+            <table width="100%">
+              <tr>
+                <td width="30%" style="vertical-align: top;">
+                  <img src="images/execution_context.png">
+                </td>
+                <td width="70%">
+                  <div style="display: inline-block;" class="fragment fade-up">
+                    <ol>
+                      <li><b><span style="color:yellow;">Creation phase:<span></b></li>
+                        <ol>
+                          <li>Creation of the <span style="color:yellow;">Variable Object (VO)</span>, aka <span style="color:yellow;">Activation Object</span></li>
+                          <li>Creation of the <span style="color:yellow;">scope chain</span></li>
+                          <li>Determine value of the <span style="color:yellow;">'this'</span> value</li>
+                        </ol>
+                      <li><b><span style="color:yellow;">Execution phase:</span></b> the code of the function that generated the current Execution Context is ran line by line</li>
+                    </ol>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <aside class="notes">
+              - <b>Variable Object (VO):</b> object that contains function arguments, inner variable and function declarations</br></br>
+              - <b>Scope Chain:</b> contains the current variable objects as well the variable objects of all its parents</br></br>
+              - <b>'this' value:</b></br></br>
+            </aside>
+          </section>
+
+          <!--Execution Context: Activation Object-->
+          <section>
+            <h5>Execution Context</h5>
+            <h3>Activation Object</h3>
+            <table width="100%">
+              <tr>
+                <td width="50%">
+                  <pre><code data-trim data-line-numbers contenteditable="true">
+                    function foo(x, y) {
+                      var z = 30;
+                      function bar() {}
+                    }
+                    foo(10, 20);
+                  </code></pre>
+                </td>
+                <td width="50%">
+                  <table border="1">
+                    <tr>
+                      <td><b>x</b></td>
+                      <td>10</td>
+                    </tr>
+                    <tr>
+                      <td><b>y</b></td>
+                      <td>20</td>
+                    </tr>
+                    <tr>
+                      <td><b>arguments</b></td>
+                      <td>{0: 10, 1: 20, ...}</td>
+                    </tr>
+                    <tr>
+                      <td><b>z</b></td>
+                      <td>30</td>
+                    </tr>
+                    <tr>
+                      <td><b>bar</b></td>
+                      <td>function</td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+            </table>
+            <aside class="notes">
+              - When a function is activated (called), the interpreter scans the function for arguments and local variables or local function declarations</br></br>
+              - The result of this scan becomes the Activation object and is the reason why hoisting occurs</br></br>
+            </aside>
+          </section>
+
+          <!--Execution Context: Scope Chain-->
+          <section>
+            <h5>Execution Context</h5>
+            <h3>Scope Chain</h3>
+            <img src="images/scope_chain.png" width="100%" height="100%">
+            <aside class="notes">
+              - As variáveis vão sendo procuradas nos scopes acima sempre que não encontradas onde "deviam"<br><br>
+              - O sentido inverso não ocorre. O global scope não tem acesso a veriáveis b ou c</br></br>
+            </aside>
+          </section>
+
+          <!--Execution Context: Execution stack vs Scope Chain-->
+          <section>
+            <h5>Execution Context</h5>
+            <h3>Execution Stack vsScope Chain</h3>
+            <img src="images/execution_stack_vs_scope_chain.png" width="100%" height="100%">
+            <aside class="notes">
+              fazer umas demos random com scopes
+            </aside>
+          </section>
+
+          <!--Execution Context: this-->
+          <section>
+            <h5>Execution Context</h5>
+            <h3>The <span style="color:yellow;">this</span> keyword</h3>
+            <img src="images/fuck_this.jpg" width="30%" height="30%">
+          </section>
+
+          <!--Execution Context: this-->
+          <section>
+            <h5>Execution Context</h5>
+            <h3>The <span style="color:yellow;">this</span> keyword</h3>
+            <ul>
+              <li>
+                <b>Regular function call:</b> the <span style="color: yellow;">this</span> keyword points at the global object (window, in the browser). The default.                
+              </li>
+              <li>
+                <b>Method call:</b> the <span style="color: yellow;">this</span> keyword points to the object that is calling the method.
+              </li>
+            </ul>
+            <aside class="notes">
+              Métodos são funções dentro de objectos.
+            </aside>
+          </section>
+
+          <!--Execution Context: this in practice-->
+          <section>
+            <h5>Execution Context</h5>
+            <h3>The <span style="color:yellow;">this</span> keyword in practice</h3>
+            <div style="display: inline-block;" class="fragment fade-up">
+              <h3>Also presenting <span style="color:yellow;">borrow methods</span></h3>
+              <span style="font-size: 20px;">JavaScript makes it possible to use one object's method on a totally different object</span>
+              
+                    <pre><code data-trim data-line-numbers contenteditable="true">
+                      var ze = {
+                        name: 'Zé',
+                        sayHi: function() {
+                          console.log('Hi ' + this.name);
+                        }
+                      }
+                    </code></pre>
+              
+                    <pre><code data-trim data-line-numbers contenteditable="true">
+                      var to = {
+                        name: 'Tó'
+                      }
+                      to.sayHi = ze.sayHi;
+                      to.sayHi();
+                    </code></pre>
+              
+            </div>
+            <aside class="notes">
+              console.log(this);<br>
+              - imprime o objecto window (global).<br><br>
+              calculateAge(1986);
+              function calculateAge(year) { console.log(2019-year); console.log(this); }<br>
+              - imprime 33 e o objecto window (global). Porque é uma regular function call. Esta função está ligada ao global object<br><br>
+              var ze = { name: 'Zé', yearOfBirth: 1986, calculateAge: function() { console.log(this); } }; ze.calculateAge()<br>
+              - imprime Object(name: 'Zé', yearOfBirth: 1986), o objecto ze que chamou o método<br><br>
+             var ze = { name: 'Zé', yearOfBirth: 1986, calculateAge: function() { console.log(this); function inner() {console.log(this); inner(); } } }; ze.calculateAge()<br> 
+             - imprime o Object ze para primeiro print e depois o objecto window (global) porque é um regular function apesar de ser dentro de um objecto.
+            </aside>
+          </section>
+
+          <!--Closures-->
+          <section>
+            <h3>Closures</h3>
+            <span style="font-size: 20px;">Closure is when a function is able to remember and access its lexical scope even when that function is executing outside its lexical scope.</span>
+          </section>
+
         </section>
       </div>
     </div>
