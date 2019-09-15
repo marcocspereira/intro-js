@@ -30,16 +30,21 @@
   <body>
     <div class="reveal">
       <div class="slides">
+
+        <!--Cover-->
+
         <section>
           <h1>JavaScript</h1>
           <img src="images/js_kills.jpg" width="40%" height="40%" />
         </section>
 
+        <!--Intro-->        
+
         <section>
           <!--Cover-->
           <section>
             <h3>JavaScript Language Basics</h3>
-            <img src="images/hoping_this_works.jpg" width="35%" height="35%" />
+            <img src="images/hoping_this_works.jpg" width="40%" height="40%" />
           </section>
 
           <!--What is JavaScript-->
@@ -238,266 +243,422 @@
 
           <!--Functions: Function Expressions-->
           <section>
-              <h5>Functions</h5>
-              <h3>Function Expressions</h3>
-              <pre><code data-trim data-line-numbers contenteditable="true">
-                var add = function(a1, b2) {
-                  return a1 + b2;
-                };
-                add(1, 2);  // 3 :-)
-              </code></pre>
-              <ul>
-                <li>The name may be ommitted, making that function "anonymous"</li>
-                <li>Do not <b>hoist</b>.</li>
-                <li>Use to avoid polluting the global scope. (e.g. IIFE)</li>
-              </ul>
-              <pre><code data-trim data-line-numbers contenteditable="true">
-                add(1, 2);  // BOOM! :-(
-                var add = function(a1, b2) {
-                  return a1 + b2;
-                };
-              </code></pre>
-              <aside class="notes">
-                - <b>Function expressions:</b> o nome pode ser emitido, tornando-as anónimas. Produzem sempre um valor. Sempre que o JavaScript espera um valor,
-                  temos que escrever uma expresão.<br><br>                
-                - Instead of your program being aware of many different functions, when you keep them anonymous, they are used and forgotten immediately.<br><br>
-                - Which one you chose is almost entirely a matter of personal taste. I think the more important thing is to pick one style of 
-                  writing functions and stick with it throughout your script.<br><br>
-                - <b>IIFE:</b> Immediately Invoked Function Expressions.
-                </aside>
-            </section>
-
-            <!--IIE-->
-            <section>
-              <h5>Functions</h5>
-              <h3>IIFE</h3>
-              <pre><code data-trim data-line-numbers contenteditable="true">
-              (
-                function() {
-                  var team = 'taxit';
-                }
-              )();
-
-              console.log(team);  // undefined because it isn't available
-              </code></pre>
-              It allows to avoid global scope pollution.
-              <aside class="notes">
-                - This function will execute immediately<br><br>
-                - Extra parenthesis are required to tell the interpreter<br><br>
-                - This is a function expression and not a declaration
+            <h5>Functions</h5>
+            <h3>Function Expressions</h3>
+            <pre><code data-trim data-line-numbers contenteditable="true">
+              var add = function(a1, b2) {
+                return a1 + b2;
+              };
+              add(1, 2);  // 3 :-)
+            </code></pre>
+            <ul>
+              <li>The name may be ommitted, making that function "anonymous"</li>
+              <li>Do not <b>hoist</b>.</li>
+              <li>Use to avoid polluting the global scope. (e.g. IIFE)</li>
+            </ul>
+            <pre><code data-trim data-line-numbers contenteditable="true">
+              add(1, 2);  // BOOM! :-(
+              var add = function(a1, b2) {
+                return a1 + b2;
+              };
+            </code></pre>
+            <aside class="notes">
+              - <b>Function expressions:</b> o nome pode ser emitido, tornando-as anónimas. Produzem sempre um valor. Sempre que o JavaScript espera um valor,
+                temos que escrever uma expresão.<br><br>                
+              - Instead of your program being aware of many different functions, when you keep them anonymous, they are used and forgotten immediately.<br><br>
+              - Which one you chose is almost entirely a matter of personal taste. I think the more important thing is to pick one style of 
+                writing functions and stick with it throughout your script.<br><br>
+              - <b>IIFE:</b> Immediately Invoked Function Expressions.
               </aside>
-            </section>
+          </section>
 
-            <!--Arrays-->
-            <section>
-              <h3>Arrays</h3>
-              List-like <b>objects</b>
-              <pre><code data-trim data-line-numbers contenteditable="true">
-                var arr = [ 'taxit', 12, true, { slb: 38 } ];
-                // arr = new Array('taxit', 12, true, { slb: 38 }); is ok
-                arr[0]; // 'taxit'
-                arr[1]; // 12
-                arr[2]; // true
-                arr[3]; // { slb : 38 }
-                arr.length; // 4
-                typeof arr;     // ?
-                arr[9] = null;
-                arr.length;     // ?
-                typeof arr[4]; // ?
-              </code></pre>
-              <aside class="notes">
-                - object, 10, 5<br><br>
-              </aside>
-            </section>
+          <!--IIE-->
+          <section>
+            <h5>Functions</h5>
+            <h3>IIFE</h3>
+            <pre><code data-trim data-line-numbers contenteditable="true">
+            (
+              function() {
+                var team = 'taxit';
+              }
+            )();
 
-            <!--Arrays: Queues and Stacks-->
-            <section>
-              <h5>Arrays</h5>
-              <h3>Queues & Stacks</h3>
-              <table>
-                <tr><td>
-                  <pre><code data-trim data-line-numbers contenteditable="true">
-                    var queue = [];
-                    queue.push('s');
-                    queue.push('l');
-                    queue.push('b');
+            console.log(team);  // undefined because it isn't available
+            </code></pre>
+            It allows to avoid global scope pollution.
+            <aside class="notes">
+              - This function will execute immediately<br><br>
+              - Extra parenthesis are required to tell the interpreter<br><br>
+              - This is a function expression and not a declaration
+            </aside>
+          </section>
 
-                    queue.shift(); // 's'
-                    queue.shift(); // 'l'
-                    queue.shift(); // 'b'
-                    queue.shift(); // undefined
-                  </code></pre>
-                </td><td>
-                  <pre><code data-trim data-line-numbers contenteditable="true">
-                    var stack = [];
-                    stack.push('s');
-                    stack.push('l');
-                    stack.push('b');
+          <!--Arrays-->
+          <section>
+            <h3>Arrays</h3>
+            List-like <b>objects</b>
+            <pre><code data-trim data-line-numbers contenteditable="true">
+              var arr = [ 'taxit', 12, true, { slb: 38 } ];
+              // arr = new Array('taxit', 12, true, { slb: 38 }); is ok
+              arr[0]; // 'taxit'
+              arr[1]; // 12
+              arr[2]; // true
+              arr[3]; // { slb : 38 }
+              arr.length; // 4
+              typeof arr;     // ?
+              arr[9] = null;
+              arr.length;     // ?
+              typeof arr[4]; // ?
+            </code></pre>
+            <aside class="notes">
+              - object, 10, 5<br><br>
+            </aside>
+          </section>
 
-                    stack.pop(); // 'b'
-                    stack.pop(); // 'l'
-                    stack.pop(); // 'b'
-                    stack.pop(); // undefined
-                  </code></pre>
-                </td></tr>
-              </table>
-              <aside class="notes">
-                - object, 10, 5<br><br>
-              </aside>
-            </section>
-
-            <!-- Arrays: iteration and how to copy?-->
-            <section>
-              <h5>Arrays</h5>
-              <h3>Iteration</h3>
-              A classic <b>for loop</b> works, however, you can use a forEach (impossible to break early)
-              <pre width="100%"><code data-trim data-line-numbers contenteditable="true">
-                words.forEach(function(word) {
-                  console.log(word + ' has ' + word.length + ' letters.');
-                });
-              </code></pre>
-              <div style="display: inline-block;" class="fragment fade-up">
-                <h3>How to copy an array?</h3>
-              </div><br>
-              <div style="display: inline-block;" class="fragment fade-up" width="100%">
+          <!--Arrays: Queues and Stacks-->
+          <section>
+            <h5>Arrays</h5>
+            <h3>Queues & Stacks</h3>
+            <table>
+              <tr><td>
                 <pre><code data-trim data-line-numbers contenteditable="true">
-                  var a = [1, 9, 0, 4];
-                  var b = a;
-                  a.push(38);
-                  a = // ?
-                  b = // ?
+                  var queue = [];
+                  queue.push('s');
+                  queue.push('l');
+                  queue.push('b');
+
+                  queue.shift(); // 's'
+                  queue.shift(); // 'l'
+                  queue.shift(); // 'b'
+                  queue.shift(); // undefined
                 </code></pre>
-              </div>
-              <aside class="notes">
-              **b = a.slice();** para cópia integral do array. Pode especificar (a partir de posicao, até posicao)<br><br>
-              Arrays sao mutaveis, estamos a mexer diretamente com referencias de memoria
-              </aside>
-            </section>
+              </td><td>
+                <pre><code data-trim data-line-numbers contenteditable="true">
+                  var stack = [];
+                  stack.push('s');
+                  stack.push('l');
+                  stack.push('b');
 
-            <!--References-->
-            <section>
-              <h3>References</h3>
-              <div style="display: inline-block;" class="fragment fade-up">
-                <ul>
-                  <li>Variables can hold the actual values of primitives types</li>
-                  <li>or references to objects</li>
-              </div>
-              <div style="display: inline-block;" class="fragment fade-up">
-                <table border="0">
-                  <tr>
-                    <td align="center">
-                      <img src="images/ref_1.png" width="600%" height="40%" />
-                    </td>
-                    <td align="center">
-                      <img src="images/ref_2.png" width="60%" height="40%" />
-                    </td>
-                  </tr>
-                </table>
-                <br><br>
-                <span style="font-size:12px">Images from Academia de Código</span>
-              </div>
-            </section>
+                  stack.pop(); // 'b'
+                  stack.pop(); // 'l'
+                  stack.pop(); // 'b'
+                  stack.pop(); // undefined
+                </code></pre>
+              </td></tr>
+            </table>
+            <aside class="notes">
+              - object, 10, 5<br><br>
+            </aside>
+          </section>
 
-            <!--Challenge 1-->
-            <section>
-              <h3>Challenge 1</h3>
-              <h1>Tip Calculator</h1>
-            </section>
+          <!--Arrays: Functional style-->
+          <section>
+            <h5>Arrays</h5>
+            <h3>Functional Style</h3>
+            <pre><code data-trim data-line-numbers contenteditable="true">
+            // apply a filter function to an array
+            var persons = [{ name: 'Rui', age: 43 }, { name: 'Pedro', age: 29 }];
+            var old = persons.filter(function(person) {
+              return person.age > 40;
+            });
+            
+            // apply a transform function to an array, transforming each element
+            var numbers = [1, 4, 9];
+            var roots = numbers.map(Math.sqrt); // [1, 2, 3]
+            
+            // reduce an array to one single value
+            var animals = ['cat', 'dog', 'fish'];
+            var letters = animals.reduce(function(sum, word) {
+              return sum + word.length;
+            }, 0); // 10
 
-            <!--Challenge 1-->
-            <section>
-              <h3>Challenge 1: Tip Calculator</h3>
-              <ul>
-                <li>functions</li>
-                <li>arrays</li>
-              </ul>
-              <br><br>
-              <a href="exercises/1/1.html" target="_blank">"Source code"</a>
-            </section>
+            // code from Academia de Código
 
-            <!--Objects-->
-            <section>
-              <h3>Objects</h3>
-              <ul>
-                <li>A collection of properties</li>
-                <li> {key: value} pairs</li>
-                <li>Everything that is not a primitive, is an Object</li>
-              </ul>
+            </code></pre>
+            <aside class="notes">
+              - Importante: The original array objects are not mutated by map, filter or reduce
+            </aside>
+          </section>
+
+          <!-- Arrays: iteration and how to copy?-->
+          <section>
+            <h5>Arrays</h5>
+            <h3>Iteration</h3>
+            A classic <b>for loop</b> works, however, you can use a forEach (impossible to break early)
+            <pre width="100%"><code data-trim data-line-numbers contenteditable="true">
+              words.forEach(function(word) {
+                console.log(word + ' has ' + word.length + ' letters.');
+              });
+            </code></pre>
+            <div style="display: inline-block;" class="fragment fade-up">
+              <h3>How to copy an array?</h3>
+            </div><br>
+            <div style="display: inline-block;" class="fragment fade-up" width="100%">
               <pre><code data-trim data-line-numbers contenteditable="true">
-                var obj = {
-                  a: 'hi',
-                  b: 42,
-                  c: true
-                };
-                // or
-                var person = new Object();
-                person.name = ['Bruno Lage'];
-                person['age']: 43;
+                var a = [1, 9, 0, 4];
+                var b = a;
+                a.push(38);
+                a = // ?
+                b = // ?
               </code></pre>
+            </div>
+            <aside class="notes">
+            **b = a.slice();** para cópia integral do array. Pode especificar (a partir de posicao, até posicao)<br><br>
+            Arrays sao mutaveis, estamos a mexer diretamente com referencias de memoria
+            </aside>
+          </section>
+
+          <!--References-->
+          <section>
+            <h3>References</h3>
+            <div style="display: inline-block;" class="fragment fade-up">
+              <ul>
+                <li>Variables can hold the actual values of primitives types</li>
+                <li>or references to objects</li>
+            </div>
+            <div style="display: inline-block;" class="fragment fade-up">
+              <table border="0">
+                <tr>
+                  <td align="center">
+                    <img src="images/ref_1.png" width="600%" height="40%" />
+                  </td>
+                  <td align="center">
+                    <img src="images/ref_2.png" width="60%" height="40%" />
+                  </td>
+                </tr>
+              </table>
+              <br><br>
+              <span style="font-size:12px">Images from Academia de Código</span>
+            </div>
+          </section>
+
+          <!--Challenge 1-->
+          <section>
+            <h3>Challenge 1</h3>
+            <h1>Tip Calculator</h1>
+          </section>
+
+          <!--Challenge 1-->
+          <section>
+            <h3>Challenge 1: Tip Calculator</h3>
+            <ul>
+              <li>functions</li>
+              <li>arrays</li>
+            </ul>
+            <br><br>
+            <a href="exercises/1/1.html" target="_blank">"Source code"</a>
+          </section>
+
+          <!--Objects-->
+          <section>
+            <h3>Objects</h3>
+            <ul>
+              <li>A collection of properties</li>
+              <li> {key: value} pairs</li>
+              <li>Everything that is not a primitive, is an Object</li>
+            </ul>
+            <pre><code data-trim data-line-numbers contenteditable="true">
+              var obj = {
+                a: 'hi',
+                b: 42,
+                c: true
+              };
+              // or
+              var person = new Object();
+              person.name = ['Bruno Lage'];
+              person['age']: 43;
+            </code></pre>
+            <table width="100%">
+              <tr>
+                <td width="50%">
+                  <pre width="100%"><code data-trim data-line-numbers contenteditable="true">
+                    obj.a; // 'hi'
+                    obj.b; // 42
+                    obj.c; // true
+                  </code></pre>
+                </td>
+                <td width="50%">
+                  <pre width="100%"><code data-trim data-line-numbers contenteditable="true">
+                    obj["a"]; // 'hi'
+                    obj["b"]; // 42
+                    obj["c"]; // true
+                  </code></pre>
+                </td>
+              </tr>
+            </table>
+          </section>
+            
+          <!--Objects and methods-->
+          <section>
+            <h5>Objects</h5>
+            <h3>Methods</h3>
+            <pre><code data-trim data-line-numbers contenteditable="true">
+              var obj = {
+                name: 'Bruno Lage',
+                birthYear: 1976,
+                calcAge: function(birthYear) {
+                  this.age =  2019 - this.birthYear;
+                };
+              };
+              // or
+              var person = new Object();
+              person.name = ['Bruno Lage'];
+              person['age']: 43;
+            </code></pre>
+            <aside class="notes">
+              - o <i>this</i> aponta para o presente/atual objecto
+            </aside>
+          </section>
+
+          <!--Challenge 2-->
+          <section>
+            <h3>Challenge 2</h3>
+            <h1>BMI Calculator</h1>
+            <h5>Body Mass Index</h5>
+          </section>
+
+          <!--Challenge 2-->
+          <section>
+            <h3>Challenge 2: BMI Calculator</h3>
+            <ul>
+              <li>Objects</li>
+              <li>methods</li>
+            </ul>
+            <br><br>
+            <a href="exercises/2/2.html" target="_blank">"Source code"</a>
+          </section>
+        </section>
+
+        <!-- Behind the scenes--> 
+
+        <section>
+
+          <!--Cover-->
+          <section>
+            <h3>JavaScript Behind the Scenes</h3>
+            <img src="images/pretending.jpg" width="40%" height="40%" />
+          </section>
+          
+          <!--How code is exectued-->
+          <section>
+            <h3>How code is executed</h3>
+            <h5>The code</h5>
+            <pre><code data-trim data-line-numbers contenteditable="true">
+            var hello = "Hello World!";
+            </code></pre>
+            <div style="display: inline-block;" class="fragment fade-up">
+              <h5>JavaScript Engine</h5>
+              <img src="images/js_engine.png" width="100%" height="100%" />
+            </div><br>
+            <aside class="notes">
+            - JS is hosted in some environment: typically a browser or a web server (node)<br><br>
+            - Host esse tem uma espécie de JavaScript engine (e.g.: Google V8) que interpreta e executa o nosso código<br><br>
+            - The region of the program where a binding between a variable and its name is valid<br><br>
+            - 1. O código é analisado por um parser que lê o código linha a linha para analisar se sintaxe ok;<br>
+            Parser sabe as regras do JS de forma em como deve ser escrito. Se encontra erro, emite erro e para execução<br><br>
+            - 2. Se tudo ok, parser produz estrutra de dados (Abstract Syntax Tree) que, de seguida, é traduzido para código máquina.<br>
+            Deixa de ser código JS para ser um conjunto de instruções
+            - 3. Se tudo ok, então corre
+            </aside>
+          </section>
+
+          <!--Lexical Scope-->
+          <section>
+            <h3>Lexical Scope</h3>
+            "is based on where variables and blocks of scope are authored/declared, by you, at write time"<br>
+            <pre><code data-trim data-line-numbers contenteditable="true">
+              function foo(a) { // global scope
+                var b = a * 2;  // foo scope (local scope)
+                function bar(c) { // bar scope (local scope)
+                  console.log(a, b, c);
+                }
+                bar(b * 3);
+              }
+              foo(2); // ? 
+            </code></pre>
+            <span style="font-size:12px;">You don't know JS: Scopes & Closures</span>
+            <aside class="notes">
+            - 2, 4, 12<br><br>
+            - <b>global scope:</b> engloba apenas a função <b>foo</b><br><br>
+            - <b>foo scope:</b>engloba <b>a</b>, <b>bar</b> e <b>b</b><br><br>
+            - <b>bar scope:</b> engloba apenas a variável <b>c</b>><br><br>
+            - Engine executa o console.log e vai procurar referências das variáveis a,b e c. Começa no scope mais interno
+            e vai subindo até encontrar. Para na primeira correspondência.
+            </aside>
+          </section>
+
+          <!--Hoisting-->
+          <section>
+            <h3>Hoisting</h3>
+            <img src="images/chicken_egg.jpg" width="50%" height="50%">
+            <br>
+            <span style="font-size: 24px;">
+              Variables and functions <b>declarations</b> are "moved" from where they appear in the flow of the code to the top of the code.
+            </span>
+            <div style="display: inline-block;" class="fragment fade-up"  width="100%">
               <table width="100%">
                 <tr>
                   <td width="50%">
                     <pre width="100%"><code data-trim data-line-numbers contenteditable="true">
-                      obj.a; // 'hi'
-                      obj.b; // 42
-                      obj.c; // true
+                      a = 2;
+                      var a;
+                      console.log(a); // ?
                     </code></pre>
                   </td>
                   <td width="50%">
                     <pre width="100%"><code data-trim data-line-numbers contenteditable="true">
-                      obj["a"]; // 'hi'
-                      obj["b"]; // 42
-                      obj["c"]; // true
+                      console.log(a); // ?
+                      var a = 2;
                     </code></pre>
                   </td>
                 </tr>
               </table>
-            </section>
-            
-            <!--Objects and methods-->
-            <section>
-              <h5>Objects</h5>
-              <h3>Methods</h3>
-              <pre><code data-trim data-line-numbers contenteditable="true">
-                var obj = {
-                  name: 'Bruno Lage',
-                  birthYear: 1976,
-                  calcAge: function(birthYear) {
-                    this.age =  2019 - this.birthYear;
-                  };
-                };
-                // or
-                var person = new Object();
-                person.name = ['Bruno Lage'];
-                person['age']: 43;
+            </div>
+            <aside class="notes">
+            - 2 e undefined<br><br>
+            - <b>ovo:</b> declaração. <b>galinha:</b> atribuição do valor;
+            </aside>
+          </section>
+          
+          <!--Hoisting: Chicken or the Egg?-->
+          <section>
+            <h5>Hoisting</h5>
+            <h3>Chicken or the Egg?</h3>
+            <pre width="100%"><code data-trim data-line-numbers contenteditable="true">
+              var a = 2;
+            </code></pre>
+            <ul>
+              <li>For JavaScript there are 2 statements:</li>
+              <pre width="100%"><code data-trim data-line-numbers contenteditable="true">
+                var = a;  // (egg: declaration - compilation)
+                a = 2;    // (chicken: assignment - execution phase)
               </code></pre>
-              <aside class="notes">
-                - o <i>this</i> aponta para o presente/atual objecto
-              </aside>
-            </section>
+              <div style="display: inline-block;" class="fragment fade-up">
+                <li>In other words, the egg (declaration) comes before the chicken (assignment)</li>
+              </div>
+            </ul>
+            <br>
+            <div style="display: inline-block;" class="fragment fade-up">
+              <img src="images/eggs.jpg" width="35%" height="35%">
+            </div>
+            <aside class="notes">
+            - Hoisting is per-scope.<br><br>
+            - Declaração de funções e variáveis são hoisted, mas as funções são hoisted primeiro que as variáveis<br><br>
+            
+            foo(); // 1<br>
+            var foo;<br>
+            function foo() { console.log(1); }<br>
+            foo = function() { console.log(2); }<br>
+            <br><br>
+            este código é interpretado pelo engine como:
+            <br><br>
+            function foo() { console.log(1); }<br>
+            foo(); // 1<br>
+            foo = function() { console.log(2); }<br>
+            </aside>
+          </section>
 
-            <!--Challenge 2-->
-            <section>
-              <h3>Challenge 2: BMIs Calculator</h3>
-              <ul>
-                <li>Objects</li>
-                <li>methods</li>
-              </ul>
-              <br><br>
-              <a href="exercises/2/2.html" target="_blank">"Source code"</a>
-            </section>
-
-
-           <!-- Behind the scenes--> 
-
-            <!--Scope-->
-            <section>
-              <h3>Scope</h3>
-              <img src="images/pretending.jpg" width="40%" height="40%" />
-              <aside class="notes">
-              - The region of the program where a binding between a variable and its name is valid
-              </aside>
-            </section>
+        </section>
       </div>
     </div>
 
