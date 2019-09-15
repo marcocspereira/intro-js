@@ -32,7 +32,7 @@
       <div class="slides">
         <section>
           <h1>JavaScript</h1>
-          <img src="images/js_for_millenials.jpg" width="40%" height="40%" />
+          <img src="images/js_kills.jpg" width="40%" height="40%" />
         </section>
 
         <section>
@@ -102,7 +102,8 @@
               floating point numbers. All have decimals even we sometimes don't
               see or even don't define them.<br /><br />
               - String: Sequence of characters, used for text<br /><br />
-              - Boolean: Logical data type that can only be true or false<br />
+              - Boolean: Logical data type that can only be true or false<br /><br>
+              falar dos Primitive Wrappers
             </aside>
           </section>
 
@@ -122,7 +123,7 @@
             </code></pre>
             <div style="display: inline-block;" class="fragment fade-up">
               How to return the type of a value?
-              <pre><code data-trim>
+              <pre width="100%"><code data-trim>
               console.log(typeof taxit);
               // result?
             </code></pre>
@@ -207,6 +208,11 @@
             </aside>
           </section>
 
+          <section>
+            <h3>Objects</h3>
+            <img src="images/orly-tyring-stuff-until-it-works.jpg" width="50%" height="50%" />
+          </section>
+
           <!--Functions: Function Statement/Declarations-->
           <section>
             <h5>Functions</h5>
@@ -288,6 +294,7 @@
               List-like <b>objects</b>
               <pre><code data-trim data-line-numbers contenteditable="true">
                 var arr = [ 'taxit', 12, true, { slb: 38 } ];
+                // arr = new Array('taxit', 12, true, { slb: 38 }); is ok
                 arr[0]; // 'taxit'
                 arr[1]; // 12
                 arr[2]; // true
@@ -344,7 +351,7 @@
               <h5>Arrays</h5>
               <h3>Iteration</h3>
               A classic <b>for loop</b> works, however, you can use a forEach (impossible to break early)
-              <pre><code data-trim data-line-numbers contenteditable="true">
+              <pre width="100%"><code data-trim data-line-numbers contenteditable="true">
                 words.forEach(function(word) {
                   console.log(word + ' has ' + word.length + ' letters.');
                 });
@@ -352,7 +359,7 @@
               <div style="display: inline-block;" class="fragment fade-up">
                 <h3>How to copy an array?</h3>
               </div><br>
-              <div style="display: inline-block;" class="fragment fade-up">
+              <div style="display: inline-block;" class="fragment fade-up" width="100%">
                 <pre><code data-trim data-line-numbers contenteditable="true">
                   var a = [1, 9, 0, 4];
                   var b = a;
@@ -369,19 +376,115 @@
 
             <!--References-->
             <section>
-            <h3>References</h3>
-            colocar aqui exemplo/desenho para explicar rapidamente
+              <h3>References</h3>
+              <div style="display: inline-block;" class="fragment fade-up">
+                <ul>
+                  <li>Variables can hold the actual values of primitives types</li>
+                  <li>or references to objects</li>
+              </div>
+              <div style="display: inline-block;" class="fragment fade-up">
+                <table border="0">
+                  <tr>
+                    <td align="center">
+                      <img src="images/ref_1.png" width="600%" height="40%" />
+                    </td>
+                    <td align="center">
+                      <img src="images/ref_2.png" width="60%" height="40%" />
+                    </td>
+                  </tr>
+                </table>
+                <br><br>
+                <span style="font-size:12px">Images from Academia de Código</span>
+              </div>
             </section>
 
             <!--Challenge 1-->
             <section>
-            <h3>Challenge 1</h3>
-            
+              <h3>Challenge 1</h3>
+              <h1>Tip Calculator</h1>
+            </section>
+
+            <!--Challenge 1-->
+            <section>
+              <h3>Challenge 1: Tip Calculator</h3>
+              <ul>
+                <li>functions</li>
+                <li>arrays</li>
+              </ul>
+              <br><br>
+              <a href="exercises/1/1.html" target="_blank">"Source code"</a>
             </section>
 
             <!--Objects-->
             <section>
               <h3>Objects</h3>
+              <ul>
+                <li>A collection of properties</li>
+                <li> {key: value} pairs</li>
+                <li>Everything that is not a primitive, is an Object</li>
+              </ul>
+              <pre><code data-trim data-line-numbers contenteditable="true">
+                var obj = {
+                  a: 'hi',
+                  b: 42,
+                  c: true
+                };
+                // or
+                var person = new Object();
+                person.name = ['Bruno Lage'];
+                person['age']: 43;
+              </code></pre>
+              <table width="100%">
+                <tr>
+                  <td width="50%">
+                    <pre width="100%"><code data-trim data-line-numbers contenteditable="true">
+                      obj.a; // 'hi'
+                      obj.b; // 42
+                      obj.c; // true
+                    </code></pre>
+                  </td>
+                  <td width="50%">
+                    <pre width="100%"><code data-trim data-line-numbers contenteditable="true">
+                      obj["a"]; // 'hi'
+                      obj["b"]; // 42
+                      obj["c"]; // true
+                    </code></pre>
+                  </td>
+                </tr>
+              </table>
+            </section>
+            
+            <!--Objects and methods-->
+            <section>
+              <h5>Objects</h5>
+              <h3>Methods</h3>
+              <pre><code data-trim data-line-numbers contenteditable="true">
+                var obj = {
+                  name: 'Bruno Lage',
+                  birthYear: 1976,
+                  calcAge: function(birthYear) {
+                    this.age =  2019 - this.birthYear;
+                  };
+                };
+                // or
+                var person = new Object();
+                person.name = ['Bruno Lage'];
+                person['age']: 43;
+              </code></pre>
+              <aside class="notes">
+                - o <i>this</i> aponta para o presente/atual objecto
+              </aside>
+            </section>
+
+            <!--Challenge 2-->
+            <section>
+              <h3>Challenge 2: BMIs Calculator</h3>
+              <ul>
+                <li>Objects</li>
+                <li>methods</li>
+              </ul>
+              <br><br>
+              <a href="exercises/2/2.html" target="_blank">"Source code"</a>
             </section>
 
 
