@@ -595,6 +595,7 @@
             <span style="font-size: 24px;">
               Variables and functions <b>declarations</b> are "moved" from where they appear in the flow of the code to the top of the code.
             </span>
+            <br>
             <div style="display: inline-block;" class="fragment fade-up"  width="100%">
               <table width="100%">
                 <tr>
@@ -806,7 +807,7 @@
             <img src="images/fuck_this.jpg" width="30%" height="30%">
           </section>
 
-          <!--Execution Context: this-->
+          <!--Execution Context: This-->
           <section>
             <h5>Execution Context</h5>
             <h3>The <span style="color:yellow;">this</span> keyword</h3>
@@ -823,7 +824,7 @@
             </aside>
           </section>
 
-          <!--Execution Context: this in practice-->
+          <!--Execution Context: This in practice & Borrow methods-->
           <section>
             <h5>Execution Context</h5>
             <h3>The <span style="color:yellow;">this</span> keyword in practice</h3>
@@ -850,16 +851,34 @@
               
             </div>
             <aside class="notes">
-              console.log(this);<br>
-              - imprime o objecto window (global).<br><br>
-              calculateAge(1986);
-              function calculateAge(year) { console.log(2019-year); console.log(this); }<br>
-              - imprime 33 e o objecto window (global). Porque é uma regular function call. Esta função está ligada ao global object<br><br>
-              var ze = { name: 'Zé', yearOfBirth: 1986, calculateAge: function() { console.log(this); } }; ze.calculateAge()<br>
-              - imprime Object(name: 'Zé', yearOfBirth: 1986), o objecto ze que chamou o método<br><br>
-             var ze = { name: 'Zé', yearOfBirth: 1986, calculateAge: function() { console.log(this); function inner() {console.log(this); inner(); } } }; ze.calculateAge()<br> 
-             - imprime o Object ze para primeiro print e depois o objecto window (global) porque é um regular function apesar de ser dentro de um objecto.
+              ver support_material/1_this_in_practice.js
             </aside>
+          </section>
+
+          <!--This: Bind, Call and Apply-->
+          <section>
+            <h5><span style="color: yellow;">This</span></h5>
+            <h3>Bind, Call & Apply</h3>
+            <ul>
+              <li>Allow to call a function and set the <span style="color: yellow;">this</span> variable manually.</li>
+            </ul>
+            <pre><code data-trim data-line-numbers contenteditable="true">
+              function compose(prefix, suffix) {
+                console.log(prefix + ' ' + this + ' ' + suffix);
+              }
+
+              // .call(set this variable, arguments as usual)
+              compose.call('Zé', 'Hello', '!');
+              // .apply(set this variable, arguments as an array)
+              compose.apply('Zé', ['Hello', '!']);
+
+              // create a new function with a statically set this argument
+              var compose2 = compose.bind('Zé');
+              compose2('Hello ', '!');
+            </code></pre>
+            <aside class="notes">
+                ver support_material/2_bind_call_apply.js
+              </aside>
           </section>
 
           <!--Closures-->
