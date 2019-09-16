@@ -18,8 +18,12 @@ Under construction...
 
 ## Hoisting
 
-## Call Stack: Execution context and the execution stack
+## Call Stack: Execution Context and the Execution Stack
 
 ## "This" keyword
 
 ## Closures
+
+## Objects: Inheritance and the Prototype Chain
+
+## Concurrency

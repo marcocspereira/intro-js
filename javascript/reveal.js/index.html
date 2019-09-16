@@ -713,7 +713,7 @@
                 <td width="70%">
                   <div style="display: inline-block;" class="fragment fade-up">
                     <ol>
-                      <li><b><span style="color:yellow;">Creation phase:<span></b></li>
+                      <li><b><span style="color:yellow;">Creation phase:<></b></li>
                         <ol>
                           <li>Creation of the <span style="color:yellow;">Variable Object (VO)</span>, aka <span style="color:yellow;">Activation Object</span></li>
                           <li>Creation of the <span style="color:yellow;">scope chain</span></li>
@@ -936,12 +936,14 @@
               <ul>
                 <li>Every call of the outer function creates a new closure</li>
                 <li>Every call of the closure interacts with the same outer scope – which is persistent</li>
+                <li>Closures can be utilized to emulate the concept of classes with public and private members (<span style="color:yellow;">Module Pattern</span>)</li>
               </ul>
               <aside class="notes">
                   ver support_material/3_closure_counter_ctrl.js
               </aside>
             </section>
 
+            <!--Closures-->
             <section>
               <h3>Closures</h3>
               <img src="images/closure1.JPG" width="100%" height="100%">
@@ -989,10 +991,190 @@
               <aside class="notes">
               </aside>
             </section>
+
+            <!--Closures-->
             <section>
               <h3>Challenge 3: Rewrite using the power of closures</h3>
               <a href="exercises/3/3.js" target="_blank">Source code</a>
             </section>
+
+            <!--Closures-->
+            <section>
+              <h5>Closure</h5>
+              <h3>One more thing</h3>
+              <pre><code data-trim data-line-numbers contenteditable="true">
+                var funcs = [];
+                for (var i = 0; i < 3; i++) {
+                  // push will create new execution context with reference to i
+                  funcs.push(function() {
+                    console.log(i);
+                  });
+                }
+                funcs[0](); // ?
+                funcs[1](); // ?
+                funcs[2](); // ?
+              </code></pre>
+              <div style="display: inline-block;" class="fragment fade-up">
+                <span style="font-size: 20px;">How to fix this?</span>
+              </div>
+              <aside class="notes">
+                - Push will create new execution context with reference to i<br><br>
+                - Criar uma função anónima que aceita o i como param e e retorna essa função<br><br>
+                var funcs = [];<br>
+                for (var i = 0; i < 3; i++) {<br>
+                  // push will create new execution context with reference to i<br>
+                  funcs.push((function(i) {<br>
+                    return function() {<br>
+                      console.log(i);<br>
+                        }<br>
+                  })(i));<br>
+                }<br>
+                funcs[0](); // 0<br>
+                funcs[1](); // 1<br>
+                funcs[2](); // 2<br>
+              </aside>
+            </section>
+
+            <!--Objects: Inheritance and the Prototype Chain-->
+            <section>
+              <h5>Objects</h5>
+              <h3>Inheritance<br>and the<br>Prototype Chain</h3>
+            </section>
+
+            <!--Objects: Almost everything is an object-->
+            <section>
+              <h5>Objects</h5>
+              <h3>Almost everything is an object</h3>
+              <img src="images/objects_in_js.JPG"/>
+            </section>
+
+            <!--Objects: Constructors and instances in JavaScript-->
+            <section>
+              <h5>Objects</h5>
+              <h3>Constructors and instances in JavaScript</h3>
+              <span style="font-size: 20px;">A class blueprint is required in order to create as many objects as we want.</span>
+              <pre><code data-trim data-line-numbers contenteditable="true">
+                /* Constructor function for objects of type Person */
+                function Person(name, yearOfBirth, job) {
+                  // property initialization code inside constructor function
+                  this.name = name;
+                  this.yearOfBirth = yearOfBirth;
+                  this.job = job;
+                }
+
+                /* Instances */
+                var ze = new Person('Zé', 1993, 'teacher');
+                var maria = new Person('Maria', 1992, 'nurse');
+              </code></pre>
+              <aside class="notes">
+                Um objecto que serve de blueprint para construir mais objectos deste tipo<br><br>
+                Outras linguagens chamam de class.<br><br>
+                Em JavaScript é chamado de Constructor ou Prototype.<br><br>
+                Com base neste construtor, podemos criar tantas instancias quanto queiramos.<br><br>
+                O operador new evita que a variable this aponte para o Global Object, como seria de esperar numa regular function call.<br>
+                Graças ao new, o this fica a apontar para o novo objecto vazio entretanto criado.
+              </aside>
+            </section>
+
+            <!--Prototype-->
+            <section>
+              <h3>Prototype</h3>
+              <ul>
+                <li>An existing object can be used as a prototype for other objects</li>
+                <li>Based on a delegation mechanism in which non existent properties are looked up in prototype objects</li>
+                <li>Every JavaScript has a <span style="color: yellow;">property prototype</span>, which makes inheritance possible in JavaScript</li>
+                <li>The <span style="color: yellow;">prototype property</span> is where we put methods and properties that we want <span style="color: yellow;">other objects to inherite</span></li>
+            </section>
+
+            <!--Prototype chain-->
+            <section>
+              <h3>Prototype Chain</h3>
+              <ul>
+                <li>JavaScript is a prototype-base language</li>
+              </ul>
+              <img src="images/prototype_chain.JPG" />
+              <aside class="notes">
+                - Prototype-based significa que herança funciona através da utilização de prototypes.<br><br>
+                - Na prática significa que todos os objectos tem uma propriedade prototype<br><br>
+              </aside>
+            </section>
+
+            <!--Prototype property-->
+            <section>
+              <h3>Prototype Property</h3>
+              <pre><code data-trim data-line-numbers contenteditable="true">
+                function Person(name, yearOfBirth, job) {
+                  this.name = name;
+                  this.yearOfBirth = yearOfBirth;
+                  this.job = job;
+                }
+                /* add method to prototype property that we want to inherite */
+                Person.prototype.calculateAge = function() {
+                  console.log(2019 - this.yearOfBirth);
+                }
+                /* Instances */
+                var ze = new Person('Zé', 1993, 'teacher');
+                var maria = new Person('Maria', 1992, 'nurse');
+                ze.calculateAge();
+                maria.calculateAge();
+              </code></pre>
+            </section>
+
+
+        </section>
+
+        <!--Concurrency-->
+        
+        <section>
+
+          <!--Intro-->
+          <section>
+            <h3>Concurrency</h3>
+            <img src="images/is_this_concurrency.jpg" width="40%" height="40%" />
+          </section>
+
+          <!--Concurrency: JavaScript is a:-->
+          <section>
+            <h3>Concurrency</h3>
+            JavaScript is a:
+            <br><br>
+            <ul>
+              <li>single threaded</li>
+              <li>concurrent</li>
+              <li>non-blocking</li>
+              <li>asychronous</li>
+            </ul>
+            <br><br>
+            programming language.
+          </section>
+
+          <!--Concurrency Model-->
+          <section>
+            <h3>Concurrency Model</h3>
+            JavaScript has a concurrency model based on an <b>event loop</b>.
+            <br>
+            <img src="images/event_loop.jpg" width="35%" height="35%" />
+            <br>
+            <span style="font-size: 20px;">This model is quite different from models in other languages like C and Java where concurrency is acheived mainly via parallel code execution using threads</span>
+          </section>
+
+          <!-- Support Material-->
+          <section>
+            <h5>Support Material</h5>
+            <h3>Concrrency Model: Event Loop</h3>
+            <ul>
+              <li>
+                <a href="https://www.youtube.com/watch?time_continue=1&v=8aGhZQkoFbQ" target="_blank">"What the heck is the event loop anyway?" (26min)</a> - Philip Roberts
+              </li>
+              <li>
+                <a href="https://blog.carbonfive.com/2013/10/27/the-javascript-event-loop-explained/" target="_blank">The JavaScript Event Loop Explained</a> - Erin Swenson-Healey
+              </li>
+              <li>
+                <a href="https://blog.avenuecode.com/understanding-the-javascript-concurrency-model" target="_blank">
+                  Understanding the JavaScript Concurrency Model</a> - Rafael Bicalho
+              </li>
+            </ul>
+          </section>
 
         </section>
       </div>
