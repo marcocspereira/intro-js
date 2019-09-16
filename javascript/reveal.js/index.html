@@ -884,8 +884,115 @@
           <!--Closures-->
           <section>
             <h3>Closures</h3>
-            <span style="font-size: 20px;">Closure is when a function is able to remember and access its lexical scope even when that function is executing outside its lexical scope.</span>
+            <div style="display: inline-block;" class="fragment fade-up">
+              <span style="font-size: 20px;">Closure is when a function is able to remember and access its lexical scope even when that function is executing outside its lexical scope.</span>
+              <br><br>
+            </div>
+            <div style="display: inline-block;" class="fragment fade-up">
+              <span style="font-size: 20px;">A closure is a function which has access to the variable from another function’s scope. This is accomplished by creating a function inside a function. Of course, the outer function does not have access to the inner scope.</span>
+              <br><br>
+            </div>
+            <div style="display: inline-block;" class="fragment fade-up">
+                <span style="font-size: 20px;">An inner function has always access to the variables and parameters of its outer function, even after the outer function has returned.</span>
+              </div>
           </section>
+
+          <!--Closures-->
+          <section>
+              <h3>Closures</h3>
+              <ul>
+                <li>Closure is nested function which has access to the outer scope</li>
+                <li>After the outer function is returned, by keeping a reference to the inner function (the closures) we prevent the outer scope to be destroyed.</li>
+              </ul>
+              <pre><code data-trim data-line-numbers contenteditable="true">
+                function buildName(name) { 
+                  var greeting = "Hello, " + name + "!"; 
+                  var sayName = function() {
+                      var welcome = greeting + " Welcome!";
+                      console.log(greeting); 
+                  };
+                  return sayName; 
+                }
+                
+                var sayMyName = buildName("John");
+              </code></pre>
+              <aside class="notes">
+                - Whenever a function is invoked, a new scope is created for that call.<br>
+                The local variable declared inside the function belong to that scope – they can only be accessed from that function -.<br>
+                It’s very important to understand that before moving further.<br><br>
+                
+                Remember:<br><br>
+                  
+                - The function scope is created for a function call, not for the function itself<br><br>
+                - Every function call creates a new scope<br><br>
+                
+                When the function has finished the execution, the scope is usually destroyed
+              </aside>
+            </section>
+
+            <!--Closures-->
+            <section>
+              <h3>Closures</h3>
+              <ul>
+                <li>Every call of the outer function creates a new closure</li>
+                <li>Every call of the closure interacts with the same outer scope – which is persistent</li>
+              </ul>
+              <aside class="notes">
+                  ver support_material/3_closure_counter_ctrl.js
+              </aside>
+            </section>
+
+            <section>
+              <h3>Closures</h3>
+              <img src="images/closure1.JPG" width="100%" height="100%">
+              <aside class="notes">
+                a nova função recebe um novo Execution Context, colocado no topo da Execution Stack
+              </aside>
+            </section>
+            <section>
+              <h3>Closures</h3>
+              <img src="images/closure2.JPG" width="100%" height="100%">
+              <aside class="notes">
+                O Execution Context tem um objecto que guardas as variáveis, scope chain e a variável this.<br><br>
+                O Scope Chain mostra as variáveis a que a função tem acesso: retirement = 66, a = 'Years...'
+              </aside>
+            </section>
+            <section>
+              <h3>Closures</h3>
+              <img src="images/closure3.JPG" width="100%" height="100%">
+              <aside class="notes">
+                Ao sair do Execution Context (após retornar), o Variable/Activation Object e o Scope Chaing não desaparece.<br><br>
+                Este é o segredo das closures. O VO permanece em memória e pode ser acedido
+              </aside>
+            </section>
+            <section>
+              <h3>Closures</h3>
+              <img src="images/closure4.JPG" width="100%" height="100%">
+              <aside class="notes">
+              </aside>
+            </section>
+            <section>
+              <h3>Closures</h3>
+              <img src="images/closure5.JPG" width="100%" height="100%">
+              <aside class="notes">
+              </aside>
+            </section>
+            <section>
+              <h3>Closures</h3>
+              <img src="images/closure6.JPG" width="100%" height="100%">
+              <aside class="notes">
+              </aside>
+            </section>
+            <section>
+              <h3>Closures</h3>
+              <img src="images/closure7.JPG" width="100%" height="100%">
+              <aside class="notes">
+              </aside>
+            </section>
+            <section>
+              <h3>Challenge 3: Rewrite using the power of closures</h3>
+              <a href="exercises/3/3.js" target="_blank">Source code</a>
+            </section>
 
         </section>
       </div>
