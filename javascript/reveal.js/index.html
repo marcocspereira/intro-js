@@ -51,7 +51,7 @@
           <section>
             <h3>What is JavaScript</h3>
             <ul>
-              <li>Lightwight</li>
+              <li>Lightweight</li>
               <li>Cross-platform</li>
               <li>Object-oriented</li>
             </ul>
@@ -793,7 +793,7 @@
           <!--Execution Context: Execution stack vs Scope Chain-->
           <section>
             <h5>Execution Context</h5>
-            <h3>Execution Stack vsScope Chain</h3>
+            <h3>Execution Stack vs Scope Chain</h3>
             <img src="images/execution_stack_vs_scope_chain.png" width="100%" height="100%">
             <aside class="notes">
               fazer umas demos random com scopes
@@ -1123,11 +1123,119 @@
 
         </section>
 
-        <!--Concurrency-->
+        <!--Async-->
         
         <section>
 
-          <!--Intro-->
+          <!--Intro: Asynchronous JavaScript-->
+          <section>
+            <h3>Asynchronous JavaScript</h3>
+            <img src="images/async_intro.jpeg" style="border: 0px; width:50%; height: 50%;" />
+            <aside class="notes">
+              <b>Asynchronous JavaScript</b> a fancy term for some code that keeps running in the backgroun
+              while our main code is still executing.<br><br>
+              - Sincrono significa que uma instrução é processada uma após a outra, linha a linha
+            </aside>
+          </section>
+          
+          <!--Callback functions-->
+          <section>
+            <h3>Callback functions</h3>
+            <ul>
+              <li>A function is called a Callback when it is passed as an argument to another
+                  function for later execution</li>
+              <li>Callbacks can be invoked:</li>
+            </ul>
+            <pre><code data-trim data-line-numbers contenteditable="true">
+              // synchronous callback
+              function isOdd(num) {
+                return num % 2;
+              }
+
+              var numbers = [1, 5, 8, 19, 232, 456];
+              var oddNumbers = numbers.filter(isOdd);
+            </code></pre>
+            <pre><code data-trim data-line-numbers contenteditable="true">
+              // asynchronous callback
+              function ring() {
+                console.log('RING!');
+              }
+
+              setInterval(ring, 1000);
+            </code></pre>
+            <aside class="notes">
+                In JavaScript, functions are objects. Because of this, functions can take
+                functions as arguments, and can be returned by other functions. Functions
+                that do this are called higher-order functions. Any function that is passed as an
+                argument is called a callback function.<br><br>
+                In JavaScript, functions are first-class objects, which means they can be:<br>
+
+                stored in a variable, object, or array<br>
+                passed as an argument to a function<br>
+                returned from a function
+            </aside>
+          </section>
+
+          <!--An example-->
+          <section>
+            <h3>An example</h3>
+            <table width="100%">
+              <tr><td>Synchronous</td><td>Asynchronous</td></tr>
+              <tr>
+                <td width="50%">
+                  <pre><code data-trim data-line-numbers contenteditable="true" class="fragment fade-up">
+                    var second = function() {
+                      console.log('Second');
+                    };
+
+                    var first = function() {
+                      console.log('Start!');
+                      second();
+                      console.log('The end!');
+                    }
+
+                    first();
+                    // ?
+                  </code></pre>
+                </td>
+                <td width="50%">
+                  <pre><code data-trim data-line-numbers contenteditable="true" class="fragment fade-up">
+                    var second = function() {
+                      setTimeout(function(){
+                        console.log('Async!');
+                      }, 2000);
+                    };
+
+                    var first = function() {
+                      console.log('Start!');
+                      second();
+                      console.log('The end!');
+                    }
+
+                    first();
+                    // ?
+                  </code></pre>
+                </td>
+              </tr>
+            </table>
+            <aside class="notes">
+              - No sincrono, as instruções correm uma depois da outra, linha a linha<br><br>
+              - setTimeOut faz parte da API do browser e permite correr o código x tempo depois<br><br>
+              - Precisamos de passar as chamadas <b>callback functions</b> para correr após o evento ocorrer,
+                neste caso, passar x segundos.<br><br>
+              - Contudo, o código nao para os x segundos: a função second() retorna praa a first() 
+                que imprime o 'The End'. Depois, após os x segundos passarem, o 'Async!' é imprimido.<br><br>
+              - Porque é que isto acontece? Porque a "magia" do código assync é correr as funções de callback
+                quando os eventos acontecem/terminam. Não esperamos que uma função termine o seu trabalho,
+                para fazer algo com o resultado de seguida. Em vez disso, enviamos a callback function para fazer
+                o trabalho em background.<br><br>
+              - As funções de callback são chamadas assim que a main thread/function estiver disponível, 
+                ou seja, utilizamos para fazer trabalho futuro.<br><br>
+              - Daí ser non-blocking
+            </aside>
+          </section>
+
+          <!--Intro: Concurrency-->
           <section>
             <h3>Concurrency</h3>
             <img src="images/is_this_concurrency.jpg" width="40%" height="40%" />
@@ -1176,10 +1284,75 @@
             </aside>
           </section>
 
+          <!--Event Loop-->
+          <section>
+            <img src="images/el1.JPG" />
+          </section>
+          <section>
+            <img src="images/el2.JPG" />
+          </section>
+          <section>
+            <img src="images/el3.JPG" />
+          </section>
+          <section>
+            <img src="images/el4.JPG" />
+          </section>
+          <section>
+            <img src="images/el5.JPG" />
+          </section>
+          <section>
+            <img src="images/el6.JPG" />
+          </section>
+          <section>
+            <img src="images/el7.JPG" />
+          </section>
+          <section>
+            <img src="images/el8.JPG" />
+          </section>
+          <section>
+            <img src="images/el9.JPG" />
+          </section>
+          <section>
+            <img src="images/el10.JPG" />
+          </section>
+          <section>
+            <img src="images/el11.JPG" />
+          </section>
+          <section>
+            <img src="images/el12.JPG" />
+          </section>
+          <section>
+            <img src="images/el13.JPG" />
+          </section>
+          <section>
+            <img src="images/el14.JPG" />
+          </section>
+          <section>
+            <img src="images/el15.JPG" />
+          </section>
+          <section>
+            <img src="images/el16.JPG" />
+          </section>
+          <section>
+            <img src="images/el17.JPG" />
+          </section>
+          <section>
+            <img src="images/el18.JPG" />
+          </section>
+          <section>
+            <img src="images/el19.JPG" />
+          </section>
+          <section>
+            <img src="images/el20.JPG" />
+          </section>
+          <section>
+            <img src="images/el21.JPG" />
+          </section>
+
           <!-- Support Material-->
           <section>
             <h5>Support Material</h5>
-            <h3>Concrrency Model: Event Loop</h3>
+            <h3>Concurrency Model: Event Loop</h3>
             <ul>
               <li>
                 <a href="https://www.youtube.com/watch?time_continue=1&v=8aGhZQkoFbQ" target="_blank">"What the heck is the event loop anyway?" (26min)</a> - Philip Roberts
@@ -1194,16 +1367,40 @@
             </ul>
           </section>
 
-        </section>
-
-        <!--Async-->
-
-        <section>
-          <!--Intro-->
+          <!--Back to Callback functions-->
+          <!--Callback Hell-->
           <section>
-            <h3>Asynchronous JavaScript</h3>
-            <img src="images/async_intro.jpeg" style="border: 0px; width:50%; height: 50%;" />
+            <h1>Callback Hell</h1>
+            <a href="support_material/4_callback.js" target="_blank">Source code</a>
           </section>
+
+          <!--Promises-->
+          <section>
+            <h3>Promises</h3>
+            <ul>
+              <li>Object that keeps track about whether a certain event has happened already or not</li>
+              <li>An abstraction built on top of callbacks that gives us back functional composition and error bubbling in the async world</li>
+              <li>A Promise object represents the eventual completion (or failure) of an asynchronous operation and its resulting value</li>
+            </ul>
+          </section>
+
+          <!--Promises States-->
+          <section>
+            <h3>Promises States</h3>
+            <img src="images/promise_states.JPG" style="border: 0px;" />
+            <aside class="notes">
+              A <b>Promise tem dois estados possíveis</b>:<br><br>
+              - <b>Pending</b> antes do evento acontecer<br>
+              - <b>Settled/Resolved</b> após o evento acontecer
+            </aside>
+          </section>
+
+          <!--Promises-->
+          <section>
+            <h3>Promises</h3>
+            <a href="support_material/5_promise.js" target="_blank">Example</a>
+          </section>
+
         </section>
 
         <!--ES6-->
@@ -1212,7 +1409,12 @@
           <!--Intro-->
           <section>
             <h3>Next Generation JavaScript: ES6/ES2015</h3>
-            <img src="images/evo.jpg" style="border: 0px;" />
+            <img src="images/evo2.gif" style="border: 0px;" />
+            <aside class="notes">
+              <b>Asynchronous JavaScript</b> a fancy term for some code that keeps running in the backgroun
+              while our main code is still executing.<br><br>
+              - ES6 é retro-compatível
+            </aside>
           </section>
         </section>
 
