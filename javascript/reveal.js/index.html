@@ -1146,6 +1146,14 @@
             </ul>
             <br><br>
             programming language.
+            <aside class="notes">
+              - <b>single-thread:</b> apenas uma Call Stack (The Call Stack is a data structure which 
+                records basically where in the program we are. )<br><br>
+              - Em JS, quase todos os I/O são não-bloqueantes, como por exemplo:
+                HTTP requests, operações de DB, leituras/escritas ao disco<br><br>
+              - Na verdade o JS usa algumas APIs (que não existem no engine, V8 por exemplo)
+                 para realizar operações assincronas,como "setTimeout", HTTP requests, DOM
+            </aside>
           </section>
 
           <!--Concurrency Model-->
@@ -1156,6 +1164,16 @@
             <img src="images/event_loop.jpg" width="35%" height="35%" />
             <br>
             <span style="font-size: 20px;">This model is quite different from models in other languages like C and Java where concurrency is acheived mainly via parallel code execution using threads</span>
+            <aside class="notes">
+              - The JavaScript engine runs inside an execution environment such as the Browser
+                or Node.js<br><br>
+              - This environment exposes many APIs to the JavaScript engine, such as the DOM
+                 or XMLHttpRequest (browser) or the Timers (both)<br><br>
+              - A main (single) thread pede para o runtime fazer uma dessas operações fornecendo
+              uma função de callback. Do tipo: "quando alguém clicar aqui, corre esta função"<br><br>
+              - Quando a operação é executada é colocada numa fila com a função de callback<br><br>
+              - Em algu mommento, a mensagem sai da fila e é disparada a função de callback
+            </aside>
           </section>
 
           <!-- Support Material-->
