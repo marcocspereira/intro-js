@@ -1,5 +1,12 @@
 # JavaScript
 
+## Read & Practice
+
+- [You don't know JS](https://github.com/getify/You-Dont-Know-JS), (Kyle Simpson)
+- [Eloquent JavaSctipt](https://eloquentjavascript.net/), (Marijn Haverbeke)
+- [Learn-JS.org](https://www.learn-js.org/)
+- [javascript.info](http://javascript.info/)
+
 ## JavaScript Language Basics
 
 ### What is JavaScript
