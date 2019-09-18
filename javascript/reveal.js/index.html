@@ -855,32 +855,6 @@
             </aside>
           </section>
 
-          <!--This: Bind, Call and Apply-->
-          <section>
-            <h5><span style="color: yellow;">This</span></h5>
-            <h3>Bind, Call & Apply</h3>
-            <ul>
-              <li>Allow to call a function and set the <span style="color: yellow;">this</span> variable manually.</li>
-            </ul>
-            <pre><code data-trim data-line-numbers contenteditable="true">
-              function compose(prefix, suffix) {
-                console.log(prefix + ' ' + this + ' ' + suffix);
-              }
-
-              // .call(set this variable, arguments as usual)
-              compose.call('Zé', 'Hello', '!');
-              // .apply(set this variable, arguments as an array)
-              compose.apply('Zé', ['Hello', '!']);
-
-              // create a new function with a statically set this argument
-              var compose2 = compose.bind('Zé');
-              compose2('Hello ', '!');
-            </code></pre>
-            <aside class="notes">
-                ver support_material/2_bind_call_apply.js
-              </aside>
-          </section>
-
           <!--Closures-->
           <section>
             <h3>Closures</h3>
@@ -1372,6 +1346,14 @@
           <section>
             <h1>Callback Hell</h1>
             <a href="support_material/4_callback.js" target="_blank">Source code</a>
+            <br>
+            <img src="images/callbackception.jpg" />
+          </section>
+
+          <!--Promises-->
+          <section>
+          <h3>Promises</h3>
+          <img src="images/promise.jpg" width="45%" height="45%" />
           </section>
 
           <!--Promises-->
@@ -1389,9 +1371,11 @@
             <h3>Promises States</h3>
             <img src="images/promise_states.JPG" style="border: 0px;" />
             <aside class="notes">
-              A <b>Promise tem dois estados possíveis</b>:<br><br>
-              - <b>Pending</b> antes do evento acontecer<br>
-              - <b>Settled/Resolved</b> após o evento acontecer
+              A Promise has four states:<br><br>
+              - <b>fulfilled:</b> Action related to the promise succeeded
+              - <b>rejected:</b> Action related to the promise failed
+              - <b>pending:</b> Promise is still pending i.e not fulfilled or rejected yet
+              - <b>settled:</b> Promise has fulfilled or rejected
             </aside>
           </section>
 
@@ -1399,6 +1383,45 @@
           <section>
             <h3>Promises</h3>
             <a href="support_material/5_promise.js" target="_blank">Example</a>
+          </section>
+
+          <!--Promises-->
+          <section>
+            <h3>Promises</h3>
+            <ul>
+              <li><span style="color: yellow;">Promise constructor</span> takes only <u>1 argument</u>, a <span style="color: yellow;">callback function</span></li>
+              <li><span style="color: yellow;">Callback function</span> takes <u>2 arguments</u>, <span style="color: yellow;">resolve</span> and <span style="color: yellow;">reject</span></li>
+              <li>Perform operations inside the callback function and if everything went well then call <span style="color: yellow;">resolve</span></li>
+              <li>If desired operations do not go well then call <span style="color: yellow;">reject</span></li>
+            </ul>
+          </section>
+
+          <!--Promises Consumers-->
+          <section>
+            <h3>Promises Consumers</h3>
+            <ul>
+              <li><span style="color: yellow;">.then()</span> is invoked when a promise is either resolved or rejected</li>
+              <li><span style="color: yellow;">.catch()</span> is invoked when a promise is either rejected or some error has occured in execution</li>
+            </ul>
+            <img src="images/promise_hell.jpeg" />
+            <aside class="notes">
+            Existem mais comandos, como o <b>Promise.all()</b>: Parallel promises fulfills when all of the promises have fulfilled or
+                                                                rejects as soon as one of the promises rejects<br>
+                                                                It fulfills with an array of the values and rejects with the reason from the first 
+                                                                promise that rejected
+                                                                <br><br>
+                                        o <b>Promise.race()</b>: It is possible to settle a promise as soon as one of many promises settles.
+                                                                 Used when interested only in one of the results
+            </aside>
+          </section>
+
+          <!--Async/Await-->
+          <section>
+            <h1>Async/Await</h1>
+            <h5>ES6 feature</h5>
+            <img src="images/lord.jpeg" />
+            <aside class="notes">
+            </aside>
           </section>
 
         </section>
@@ -1441,5 +1464,10 @@
         ]
       });
     </script>
+    <!--
+      https://eloquentjavascript.net/
+      https://www.learn-js.org/
+      http://javascript.info/
+    -->
   </body>
 </html>

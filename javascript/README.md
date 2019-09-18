@@ -64,4 +64,10 @@ Under construction...
 
 ### Event Loop
 
+### Callback Functions
+
+### Promises
+
+### Async/Await (from ES6)
+
 ## Next Generation JavaScript: ES6/2015

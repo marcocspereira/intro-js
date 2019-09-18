@@ -22,7 +22,7 @@ function getRecipe() {
               title: "Pizza",
               publisher: "Gomes de Sá"
             };
-            console.log(recipe2);
+            console.log(publisher + ": " + recipe2.title);
           },
           1500,
           recipe.publisher
