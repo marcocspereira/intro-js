@@ -1,7 +1,5 @@
 # JavaScript
 
-Under construction...
-
 ## JavaScript Language Basics
 
 ### What is JavaScript
