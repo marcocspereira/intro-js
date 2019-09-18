@@ -2,27 +2,27 @@
  * BASIC EXAMPLE
  ***********************/
 
-function buildContor(i) { 
-    var contor = i;
-    var displayContor = function() {
-        console.log(contor++);
-        contor++;
+function buildCounter(i) { 
+    var counter = i;
+    var displayCounter = function() {
+        console.log(counter);
+        counter++;
     };
-    return displayContor; 
+    return displayCounter; 
   }
   
-  var myContor = buildContor(1);
-  myContor(); // 1
-  myContor(); // 2
-  myContor(); // 3
+  var myCounter = buildCounter(1);
+  myCounter(); // 1
+  myCounter(); // 2
+  myCounter(); // 3
   
-  // new closure - new outer scope - new contor variable
-  var myOtherContor = buildContor(10);
-  myOtherContor(); // 10 
-  myOtherContor(); // 11
+  // new closure - new outer scope - new counter variable
+  var myOtherCounter = buildCounter(10);
+  myOtherCounter(); // 10 
+  myOtherCounter(); // 11
   
-  // myContor was not affected 
-  myContor(); // 4
+  // myCounter was not affected 
+  myCounter(); // 4
 
   
   
@@ -56,13 +56,13 @@ console.log(obj.getVar()); // string
  * SINGLETON
  ***********************/
 var singleton = function () {
-    var private_contor = 0;
+    var private_counter = 0;
     return {
         get: function () {
-            return "Contor: " + private_contor;
+            return "Counter: " + private_counter;
         },
         increment: function() {
-            private_contor++;
+            private_counter++;
         }
     };
 }();  // Attention Here - the singleton is the result of this function's call
@@ -74,3 +74,45 @@ singleton.increment();
 console.log(singleton.get());
 singleton.increment();
 console.log(singleton.get());
+
+
+/*******************************
+ * slide 27
+ *******************************/
+
+ /****
+ * PROBLEMA do slide 3.27
+ ****/
+	
+var funcs = [];
+for (var i = 0; i < 3; i++) {
+  // push will create new execution context with reference to i
+  funcs.push(function() {
+    console.log(i);
+  });
+}
+funcs[0](); // 3
+funcs[1](); // 3
+funcs[2](); // 3
+
+/****
+ * SOLUÇÃO do slide 3.27
+ ****/
+
+// Push will create new execution context with reference to i
+
+// Criar uma função anónima que aceita o i como param e e retorna essa função
+
+var funcs = [];
+for (var i = 0; i < 3; i++) {
+    // push will create new execution context with reference to i
+    funcs.push((function(i) {
+        return function() {
+            console.log(i);
+        }
+    })(i));
+}
+
+funcs[0](); // 0
+funcs[1](); // 1
+funcs[2](); // 2
