@@ -47,6 +47,18 @@
             <img src="images/hoping_this_works.jpg" width="40%" height="40%" />
           </section>
 
+          <!--in the beginning-->
+          <section>
+            <h3>Brendan Eich</h3>
+            <img src="images/iamyourfather_js.png" />
+            <br>
+            <ul>
+              <li>Netscape Communications, 1995</li>
+              <li>He developed the 1st prototype in 10 days</li>
+              <li>Java is to JavaScript as Car is to Carpet</li>
+            </ul>
+          </section>
+
           <!--What is JavaScript-->
           <section>
             <h3>What is JavaScript</h3>
@@ -121,7 +133,7 @@
           <!--Dynamic Typing-->
           <section width="100%">
             <h3>Dynamic Typing</h3>
-            <pre><code data-trim data-line-numbers contenteditable="true">
+            <pre style="width: 100%;"><code data-trim data-line-numbers contenteditable="true">
               var taxit = 15;	// Number
               taxit = 'great';	// now is a String
               taxit = { members: 15, office: 'somewhere' }	// Object
@@ -135,7 +147,7 @@
             </div>
             <div style="display: inline-block;" class="fragment fade-up">
               What if...
-              <pre><code data-trim>
+              <pre style="width: 100%;"><code data-trim>
               var hello = 'Hi';
               var size = 15;
               console.log(hello + ' ' + size);
@@ -215,7 +227,7 @@
 
           <section>
             <h3>Objects</h3>
-            <img src="images/orly-tyring-stuff-until-it-works.jpg" width="50%" height="50%" />
+            <img src="images/orly-tyring-stuff-until-it-works.jpg" width="45%" height="45%" />
           </section>
 
           <!--Functions: Function Statement/Declarations-->
@@ -321,7 +333,7 @@
             <h3>Queues & Stacks</h3>
             <table>
               <tr><td>
-                <pre><code data-trim data-line-numbers contenteditable="true">
+                <pre style="width: 100%;"><code data-trim data-line-numbers contenteditable="true">
                   var queue = [];
                   queue.push('s');
                   queue.push('l');
@@ -333,7 +345,7 @@
                   queue.shift(); // undefined
                 </code></pre>
               </td><td>
-                <pre><code data-trim data-line-numbers contenteditable="true">
+                <pre style="width: 100%;"><code data-trim data-line-numbers contenteditable="true">
                   var stack = [];
                   stack.push('s');
                   stack.push('l');
@@ -355,7 +367,7 @@
           <section>
             <h5>Arrays</h5>
             <h3>Functional Style</h3>
-            <pre><code data-trim data-line-numbers contenteditable="true">
+            <pre style="width: 100%; height: 100%;"><code data-trim data-line-numbers contenteditable="true">
             // apply a filter function to an array
             var persons = [{ name: 'Rui', age: 43 }, { name: 'Pedro', age: 29 }];
             var old = persons.filter(function(person) {
@@ -372,8 +384,6 @@
               return sum + word.length;
             }, 0); // 10
 
-            // code from Academia de Código
-
             </code></pre>
             <aside class="notes">
               - Importante: The original array objects are not mutated by map, filter or reduce
@@ -383,18 +393,10 @@
           <!-- Arrays: iteration and how to copy?-->
           <section>
             <h5>Arrays</h5>
-            <h3>Iteration</h3>
-            A classic <b>for loop</b> works, however, you can use a forEach (impossible to break early)
-            <pre width="100%"><code data-trim data-line-numbers contenteditable="true">
-              words.forEach(function(word) {
-                console.log(word + ' has ' + word.length + ' letters.');
-              });
-            </code></pre>
-            <div style="display: inline-block;" class="fragment fade-up">
-              <h3>How to copy an array?</h3>
-            </div><br>
+            <h3>How to copy an array?</h3>
+            <br>
             <div style="display: inline-block;" class="fragment fade-up" width="100%">
-              <pre><code data-trim data-line-numbers contenteditable="true">
+              <pre style="width: 100%;"><code data-trim data-line-numbers contenteditable="true">
                 var a = [1, 9, 0, 4];
                 var b = a;
                 a.push(38);
@@ -1060,19 +1062,6 @@
                 <li>The <span style="color: yellow;">prototype property</span> is where we put methods and properties that we want <span style="color: yellow;">other objects to inherite</span></li>
             </section>
 
-            <!--Prototype chain-->
-            <section>
-              <h3>Prototype Chain</h3>
-              <ul>
-                <li>JavaScript is a prototype-base language</li>
-              </ul>
-              <img src="images/prototype_chain.JPG" />
-              <aside class="notes">
-                - Prototype-based significa que herança funciona através da utilização de prototypes.<br><br>
-                - Na prática significa que todos os objectos tem uma propriedade prototype<br><br>
-              </aside>
-            </section>
-
             <!--Prototype property-->
             <section>
               <h3>Prototype Property</h3>
@@ -1094,6 +1083,18 @@
               </code></pre>
             </section>
 
+            <!--Prototype chain-->
+            <section>
+              <h3>Prototype Chain</h3>
+              <ul>
+                <li>JavaScript is a prototype-base language</li>
+              </ul>
+              <img src="images/prototype_chain.JPG" />
+              <aside class="notes">
+                - Prototype-based significa que herança funciona através da utilização de prototypes.<br><br>
+                - Na prática significa que todos os objectos tem uma propriedade prototype<br><br>
+              </aside>
+            </section>
 
         </section>
 
@@ -1418,10 +1419,53 @@
           <!--Async/Await-->
           <section>
             <h1>Async/Await</h1>
-            <h5>ES6 feature</h5>
+            <h5>ES8/2017 feature</h5>
             <img src="images/lord.jpeg" />
             <aside class="notes">
+              - Permite escrever código assincrono num estilo sincrono.<br><br>
+              - Foi desenhado para consumir Promises e não para as produzir.
             </aside>
+          </section>
+
+          <!--The Async & The Await-->
+          <section>
+            <h3>Async/Await</h3>
+            <ul>
+              <li>Abstraction <span style="color: yellow;">built on top of Promises</span> that allows writing asynchronous code in a readable and synchronous looking fashion</li>
+              <li><span style="color: yellow;">async</span> functions always return a Promise!</li>
+              <li><span style="color: yellow;">await</span> defers the execution of the remaining function code until the promise is fulfilled!</li>
+            </ul>
+            <aside class="notes">
+              await só pode ser usado dentro de async functions
+            </aside>
+          </section>
+
+          <!--Async/Await vs Promises-->
+          <section style="width:100%;">
+            <h5>Async/Await vs Promises</h5>
+            <pre><code data-trim data-line-numbers contenteditable="true">
+              function fetchUser(login) {
+                const api = 'https://api.github.com/users';
+                return fetch(`${api}/${login}`)
+                  .then(response => response.json())
+                  .then(user => ({
+                    name: user.name,
+                    location: user.location
+                  }));
+              }
+            </code></pre>
+            <pre><code data-trim data-line-numbers contenteditable="true">
+              async function fetchUser(login) {
+                const api = 'https://api.github.com/users';
+                const response = await fetch(`${api}/${login}`
+                const user = await response.json();
+                return {
+                  name: user.name,
+                  location: user.location
+                };
+              }
+            </code></pre>
+            <span style="color: yellow;"><a href="support_material/6_async_await.js" target="_blank">Example</a></span>
           </section>
 
         </section>
@@ -1431,21 +1475,439 @@
         <section>
           <!--Intro-->
           <section>
-            <h3>Next Generation JavaScript: ES6/ES2015</h3>
+            <h3>Next Generation JavaScript: <u>ES6/ES2015</u>, ES7/2016, ES8/2017...</h3>
             <img src="images/evo2.gif" style="border: 0px;" />
+            <br>
+            <span style="font-size: 20px;">ES: ECMA Script</span>
+            <br>
+            <span style="font-size: 20px;">ECMA: European Computer Manufacturers Association</span>
             <aside class="notes">
               <b>Asynchronous JavaScript</b> a fancy term for some code that keeps running in the backgroun
               while our main code is still executing.<br><br>
               - ES6 é retro-compatível
             </aside>
           </section>
-        </section>
 
-        <!--Last-->
+          <!--ES6/2015-->
+          <section>
+            <h3>ES6/2015</h3>
+            <ul style="font-size: 35px;">
+              <li>Variable Declarations with <span style="color: yellow;">let</span> and <span style="color: yellow;">const</span></li>
+              <li>Strings</li>
+              <li>Arrow functions</li>
+              <li>Destructuring</li>
+              <li>Spread opreator</li>
+              <li>Rest Parameters</li>
+              <li>Classes and Subclasses</li>
+            </ul>
+          </section>
 
-        <section>
-          <img src="images/thats_all_folks.gif" style="border: 0px;" />
-        </section>
+          <!--Let & Const-->
+          <section>
+            <h3>Let & Const</h3>
+            <pre><code data-trim data-line-numbers contenteditable="true">
+              // ES5
+              var name5 = 'Lopes';
+              var age5 = 30;
+              name5 = 'Lopes da Silva';
+              console.log(name5); // ?
+            </code></pre>
+            <pre><code data-trim data-line-numbers contenteditable="true">
+              // ES6
+              const name6 = 'Lopes';
+              let age6 = 30;
+              name6 = 'da Silva';
+              console.log(name6); // ?
+            </code></pre>
+            <span style="font-size: 20px;">Block <span style="color: yellow;">{ }</span> scoped variable declaration</span>
+            <pre><code data-trim data-line-numbers contenteditable="true">
+              {
+                var name5 = 'Lopes';
+                let name6 = 'da Silva';
+              }
+              console.log(name5); // ?
+              console.log(name6); // ?
+            </code></pre>
+            <aside class="notes">
+              Substitui a utilização de var<br><br>
+              <br><br>
+              <b>Let:</b> let declarations attach to the block scope.
+                          block scoped variables are not initialized until
+                          they appear in the block
+              <br>Const:<br> Read-only block scoped variable declaration
+              <br><br>
+              Lopes da Silva
+              <br>
+              TypeError
+              <br>
+              Lopes e ReferenceError
+            </aside>
+          </section>
+
+<!--Let & Const-->
+          <section>
+            <h3>Let & Const</h3>
+            <pre><code data-trim data-line-numbers contenteditable="true">
+              // ES5
+              var name5 = 'Lopes';
+              var age5 = 30;
+              name5 = 'Lopes da Silva';
+              console.log(name5); // ?
+            </code></pre>
+            <pre><code data-trim data-line-numbers contenteditable="true">
+              // ES6
+              const name6 = 'Lopes';
+              let age6 = 30;
+              name6 = 'da Silva';
+              console.log(name6); // ?
+            </code></pre>
+            <span style="font-size: 20px;">Block <span style="color: yellow;">{ }</span> scoped variable declaration</span>
+            <pre><code data-trim data-line-numbers contenteditable="true">
+              {
+                var name5 = 'Lopes';
+                let name6 = 'da Silva';
+              }
+              console.log(name5); // ?
+              console.log(name6); // ?
+            </code></pre>
+            <aside class="notes">
+              Substitui a utilização de var<br><br>
+              <br><br>
+              <b>Let:</b> let declarations attach to the block scope.
+                          block scoped variables are not initialized until
+                          they appear in the block
+              <br>Const:<br> Read-only block scoped variable declaration
+              <br><br>
+              Lopes da Silva
+              <br>
+              TypeError
+              <br>
+              Lopes e ReferenceError
+            </aside>
+          </section>
+
+          <!--Strings-->
+          <section>
+            <h3>Strings</h3>
+            <pre><code data-trim data-line-numbers contenteditable="true">
+              // ES5
+              var name5 = 'Brendan Eich';
+              var jsYear5 = 1995;
+              function calcAge5(yearOfBirth) {
+                return new Date().getFullYear() - yearOfBirth;
+              }
+
+              console.log("My name is " + name5 + ". " +
+                          "JS was born " + calcAge5(jsYear5) + " years ago.");
+            </code></pre>
+            <span style="font-size: 20px;">Template Literals <span style="color: yellow;">`Text ${variable_name_or_function}`</span></span>
+            <pre><code data-trim data-line-numbers contenteditable="true">
+              // ES6
+              const name6 = 'Brendan Eich';
+              const jsYear6 = 1995;
+              function calcAge6(yearOfBirth) {
+                return new Date().getFullYear() - yearOfBirth;
+              }
+
+              console.log(`My name is ${name6}. JS was born 
+                          ${calcAge6(jsYear6)}years ago.`);
+            </code></pre>
+          </section>
+
+          <!--Arrow Functions-->
+          <section>
+            <h3>Arrow Functions =></h3>
+            <span style="font-size: 20px;">Shorter sintax</span>
+            <pre><code data-trim data-line-numbers contenteditable="true">
+              var math = {
+                product: function(x, y) {
+                  return x * y;
+                  },
+                square: function(x) {
+                  return x * x;
+                  }
+              };
+            </code></pre>
+            <pre><code data-trim data-line-numbers contenteditable="true">
+              // ES6
+              let math = {
+                product: (x, y) => x * y,
+                square: x => x * x
+              }
+            </code></pre>
+          </section>
+
+          <!--Arrow Functions-->
+          <section>
+            <h3>Arrow Functions =></h3>
+            <pre><code data-trim data-line-numbers contenteditable="true">
+              // How can we fix this?
+              let person = {
+                name: 'Eusébio',
+                greeting: `Hello ${name}!`,
+                delayedHello(delay) {
+                  setTimeout(function() {
+                    console.log(this.greeting);
+                  }, delay);
+                }
+              };
+              person.delayedHello(1000); // undefined
+            </code></pre>
+            <span style="font-size: 20px;">Next slide has the solution. Old and new ways.</span>
+          </section>
+
+          <!--Arrow Functions-->
+          <section>
+            <h3>Arrow Functions =></h3>
+            <span style="font-size: 20px;">Is a shortcut for creating anonymous functions with <span style="color: yellow;">this</span> bounded to lexical scope</span>
+            <table>
+              <tr>
+                <td>
+                  <pre style="width: 100%;"><code data-trim data-line-numbers contenteditable="true">
+                    let person = {
+                      name: "Eusébio",
+                      greeting: `Hello ${name}!`,
+                      delayedHello(delay) {
+                        (function(greeting) {
+                          setTimeout(function() {
+                            console.log(greeting);
+                          }, delay);
+                        })(this.greeting);
+                      }
+                    };
+                    
+                    person.delayedHello(1000);
+                    // Hello Eusébio!
+                  </code></pre>
+                </td>
+                <td>
+                  <pre style="width: 100%;"><code data-trim data-line-numbers contenteditable="true">
+                    // ES6
+                    let person = {
+                      name: 'Eusébio',
+                      greeting: `Hello ${name}!`,
+                      delayedHello(delay) {
+                        setTimeout(() => {
+                          console.log(this.greeting);
+                        }, delay);
+                      }
+                    };
+                    person.delayedHello(1000);
+                    // Hello Eusébio!
+                  </code></pre>     
+                </td>
+              </tr>
+            </table>
+            <aside class="notes">
+              Arrow Functions partilham o 'this' que já existe à volta
+              <br><br>
+              Isto significa que não são como as funções normais que têm o seu próprio 'this'.<br>
+              As arrow functions não tem o seu próprio 'this', usam o 'this' das outer functions.
+            </aside>
+          </section>
+
+          <!--Destructuring-->
+          <section>
+            <h3>Destructuring</h3>
+            <ul>
+              <li>Give us a convenient way to extract data from data stucture like an <span style="color: yellow;">object</span> or an <span style="color: yellow;">array</span></li>
+              <li>Unpacks <span style="color: yellow;">selected values</span> from arrays, or <span style="color: yellow;">properties</span> from objects, into distinct variables</li>
+            </ul>
+          </section>
+
+          <!--Destructuring-->
+          <section>
+              <h3>Destructuring</h3>
+              <pre style="width: 100%;"><code data-trim data-line-numbers contenteditable="true">
+                // ES5
+                var arraio = ['Zé', 20];
+                var name = arraio[0];
+                var age5 = arraio[1];
+
+                var obj6 = {
+                  name: 'Zé',
+                  age: 30
+                };
+                var name = obj6.name
+              </code></pre> 
+              <pre style="width: 100%;"><code data-trim data-line-numbers contenteditable="true">
+                // ES6
+                const arraio = ['Zé', 30];
+                const [name, age] = arraio
+
+                const obj = {
+                  name: 'Zé',
+                  age: 30
+                };
+                const { name } = obj;
+              </code></pre>
+              <aside class="notes">
+                - Discarding non interesting properites form objects is easy
+                  (por exemplo, não estamos a ir buscar a idade)
+                <br><br>
+                - os nomes convem que sejam os mesmos ou então ficam do tipo<br>
+                  nome_da_prop: nome_pretendido
+              </aside>
+            </section>
+
+            <!--Spread Operator-->
+            <section>
+              <h3>Spread Operator</h3>
+              <ul>
+                <li>When used in front of an array it will <span style="color: yellow;">spread out</span> into its <span style="color: yellow;">individual values</span></li>
+                <li>A convenient way to expand elements of an <span style="color: yellow;">array</span> in places like <span style="color: yellow;">arguments</span> and <span style="color: yellow;">function calls</span></li>
+              </ul>
+              <pre style="width: 100%;"><code data-trim data-line-numbers contenteditable="true">
+                const ages = [18, 30, 12, 21];
+                function addFourAges(a, b, c, d) {
+                  return a + b + c + d;
+                }
+                // ES 5
+                const result1 = addFourAges(ages[0], ages[1], ages[2], ages[3]);
+                console.log(result1);
+                // ES 6
+                const result2 = addFourAges(...ages);
+                console.log(result2);
+              </code></pre>
+            </section>
+
+          <!--Spread Operator-->
+          <section>
+            <h3>Rest Parameters</h3>
+            <ul>
+              <li>When used as a function argument, it will <span style="color: yellow;">gather the rest of the arguments</span> into an <span style="color: yellow;">array</span></li>
+              <li>Allow to pass an arbitrary number of arguments into a function</li>
+            </ul>
+            <pre style="width: 100%;"><code data-trim data-line-numbers contenteditable="true">
+              const ages = [18, 30, 12, 21];
+
+              function addFourAges(name, ...ages) {
+                console.log(name);
+                return ages.reduce( (total, el) => {
+                  return total + el;
+                }, 0)
+              }
+
+              const result = addFourAges('Zé', ...ages);
+              console.log(result);
+            </code></pre>
+          </section>
+
+          <!--Classes-->
+          <section>
+            <h3>Classes</h3>
+            <ul style="font-size: 25px;">
+              <li>ES6 Classes are syntactic sugar over <span style="color: yellow;">prototype-based</span> inheritance</li>
+              <li>Simply make it easier to implement inheritance and to create objects</li>
+            </ul>
+            <table>
+              <tr>
+                <td>
+                  <pre style="width: 100%;"><code data-trim data-line-numbers contenteditable="true">
+                    // ES5
+                    // constructor function
+                    function Person(name, age) {
+                      this.name = name;
+                      this.age = age;
+                    }
+                    // instance method
+                    Person.prototype.getFakeAge = function(years
+                      return this.age - years;
+                    }
+                    // static method
+                    Person.greet = function() {
+                      console.log('Hi!');
+                    }
+                  </code></pre>
+                </td>
+                <td>
+                  <pre style="width: 100%;"><code data-trim data-line-numbers contenteditable="true">
+                    // ES6
+                    class Person {
+                      constructor(name, age) {
+                        this.name = name;
+                        this.age = age;
+                      }
+                      fakeAge(years) {
+                        return this.age - years;
+                      }
+                      static greet() {
+                        console.log('Hi!');
+                      }
+                    }
+                  </code></pre>
+                  <aside class="notes">
+                    - Utiliza a keyword <b>class</b><br><br>
+                    - Utiliza o <b>constructor</b> como construtor para inicializar a classe<br><br>
+                    - <b>static methods:</b> not inherited by the class instances
+                  </aside>
+                </td>
+              </tr>
+            </table>
+          </section>
+
+          <!--SubClassing-->
+          <section>
+            <h3>SubClassing</h3>
+            <span style="font-size: 20px;">
+              <span style="color: yellow;"><b>extends</b></span> keyword can be used to create a class as a child of another class
+            </span>
+            <pre style="width: 100%;"><code data-trim data-line-numbers contenteditable="true">
+              class Animal {
+                constructor(name) {
+                  this.name = name;
+                }
+                speak() {
+                  console.log(this.name + ' makes a noise.');
+                }
+              }
+              
+              class Dog extends Animal {
+                speak() {
+                  console.log(this.name + ' barks.');
+                }
+              }
+            </code></pre>
+          </section>
+
+          <section>
+            <h5>ES6/2015</h5>
+            <h3>and more...</h3>
+            <table style="font-size: 20px;">
+              <tr>
+                <td>
+                  <ul>
+                    <li>Constants</li>
+                    <li>Scoping</li>
+                    <li>Arrow Functions</li>
+                    <li>Extended Parameter Handling</li>
+                    <li>Template Literals</li>
+                    <li>Extended Literals</li>
+                    <li>Enhanced Regular Expression</li>
+                    <li>Enhanced Object Properties</li>
+                    <li>Destructuring Assignment</li>
+                    <li>Modules</li>
+                  </ul>
+                </td>
+                <td>
+                  <ul>
+                    <li>Classes</li>  
+                    <li>Symbol Type</li>
+                    <li>Generators</li>
+                    <li>Map/Set/WeakMap/WeakSet</li>
+                    <li>Typed Arrays</li>
+                    <li>New Built-In Methods</li>
+                    <li>Promises</li>
+                    <li>Meta-Programming</li>
+                    <li>Internationalization & Localization</li>
+                  </ul>
+                </td>
+              </tr>
+            </table>
+            <img src="images/the_end.gif" style="border: 0px; width: 35%; height:35%;" />
+          </section>
+        </section>        
+        
       </div>
     </div>
 

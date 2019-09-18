@@ -71,3 +71,17 @@ Under construction...
 ### Async/Await (from ES6)
 
 ## Next Generation JavaScript: ES6/2015
+
+### Variable Declarations with let and const
+
+### Strings
+
+### Arrow functions
+
+### Destructuring
+
+### Spread opreator
+
+### Rest Parameters
+
+### Classes and Subclasses
