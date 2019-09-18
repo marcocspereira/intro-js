@@ -114,7 +114,7 @@
               yet. So is the value that is automatically assigned if a value is
               not provided.<br /><br />
               - <b>Null:</b> 'Non-existent' value that represents the intentional
-              absence of any object value<br /><br />
+              absence of any object value. É do tipo <b>object</b>, o que é um bug<br /><br />
               - <b>Number:</b> Floating point numbers, for decimal and integers. Always
               floating point numbers. All have decimals even we sometimes don't
               see or even don't define them.<br /><br />
@@ -187,16 +187,16 @@
             type coercion, use strict equality <b>===</b>.
           
             <aside class="notes">
-              - Conversão implicita.<br /><br />
+              - <b>Conversão implicita</b>.<br /><br />
               - JavaScript converte automaticamente de uns types pra outros, como
               precisar.<br /><br />
-              - +: em JavaScript converte qualquer um dos operandos para string se
+              - <b>+:</b> em JavaScript converte qualquer um dos operandos para string se
               pelo menos um for string<br /><br />
-              - Numeros com booleans: booleans são coercidos para números pois são
+              - <b>Numeros com booleans:</b> booleans são coercidos para números pois são
               considerados e implementados como valores numéricos com o digito
               binário (bit)<br /><br />
-              - === verifica se o valor é o mesmo e se tem o mesmo tipo<br /><br />
-              - == verifica apenas se os valores podem ser coercidos um no outro
+              - <b>===</b> verifica se o valor é o mesmo e se tem o mesmo tipo<br /><br />
+              - <b>==</b> verifica apenas se os valores podem ser coercidos um no outro
             </aside>
           </section>
 
@@ -217,10 +217,10 @@
             ! Falsy Values
             <aside class="notes">
               - The falsy values in JavaScript are values that can be coerced into false. There are six falsy values, with everything else being truthy.<br><br>
-              - You may be wondering why JavaScript has both null and undefined, and what the difference may be between the two.<br><br>
-              Typically, undefined is when a value has not been defined by the user. When accessing an index in an array or a key in an object that doesn’t exist, you may get undefined.
+              - You may be wondering why JavaScript has both <b>null</b> and <b>undefined</b>, and what the <b>difference</b> may be between the two.<br><br>
+              Typically, <b>undefined</b> is when a value has not been defined by the user. When accessing an index in an array or a key in an object that doesn’t exist, you may get undefined.
               Similarly, if you have defined a variable or a flunction but you misspell it when trying to use it, you may get an error such as variable is not defined.<br><br>
-              - Null, however, does not imply that a value has been forgotten to be declared or doesn’t exist.
+              - <b>Null</b>, however, does not imply that a value has been forgotten to be declared or doesn’t exist.
             Typically, a human has intentionally assigned a value to null to imply that the value should start out as null but may possibly change.
             </aside>
           </section>
@@ -323,7 +323,9 @@
               typeof arr[4]; // ?
             </code></pre>
             <aside class="notes">
-              - object, 10, 5<br><br>
+              - object<br><br>
+              - 10<br><br>
+              - undefined<br><br>
             </aside>
           </section>
 
@@ -353,13 +355,13 @@
 
                   stack.pop(); // 'b'
                   stack.pop(); // 'l'
-                  stack.pop(); // 'b'
+                  stack.pop(); // 's'
                   stack.pop(); // undefined
                 </code></pre>
               </td></tr>
             </table>
             <aside class="notes">
-              - object, 10, 5<br><br>
+              tem o <b>.unshift()</b> que coloca elementos no início do array
             </aside>
           </section>
 
@@ -386,7 +388,9 @@
 
             </code></pre>
             <aside class="notes">
-              - Importante: The original array objects are not mutated by map, filter or reduce
+              - <b>Importante:</b> The original array objects are not mutated by map, filter or reduce
+              <br><br>
+              Na prática retorna uma cópia
             </aside>
           </section>
 
@@ -405,8 +409,17 @@
               </code></pre>
             </div>
             <aside class="notes">
-            **b = a.slice();** para cópia integral do array. Pode especificar (a partir de posicao, até posicao)<br><br>
-            Arrays sao mutaveis, estamos a mexer diretamente com referencias de memoria
+              <b>a</b> e <b>b</b> ficam iguais, ou seja [1, 9, 0, 4, 38]            
+              <br><br>
+              <b>b = a.slice();</b> para cópia integral do array.
+              <br><br>Pode especificar (a partir de posicao, até posicao)<br><br>
+              Arrays sao mutaveis, estamos a mexer diretamente com referencias de memoria<br><br>
+              Para <b>copiar um objecto</b>, podemos usar o <b>spread operator</b> (ES6)<br>
+              var obj = { foo: "foo", bar: "bar" };<br>
+              var clonedObj = { ...obj };<br><br>
+              ou o <b>Object.assign</b><br><br>
+                var obj = { foo: "foo", bar: "bar" };<br>
+                var clonedObj = Object.assign({}, obj);
             </aside>
           </section>
 
@@ -488,6 +501,9 @@
                 </td>
               </tr>
             </table>
+            <aside class="notes">
+              mostrar como se <b>copia um objecto</b> com o <b>Object.assign({}, objecto_a_copiar)</b>
+            </aside>
           </section>
             
           <!--Objects and methods-->
@@ -550,11 +566,16 @@
             </code></pre>
             <div style="display: inline-block;" class="fragment fade-up">
               <h5>JavaScript Engine</h5>
-              <img src="images/js_engine.png" width="100%" height="100%" />
+              <img src="images/js_engine.png" width="80%" height="80%" />
             </div><br>
+            <span style="font-size:20px">
+              <a href="https://d33wubrfki0l68.cloudfront.net/010de1f875240e3fe452f37e91f706bb9c20cf98/8e1c4/images/js/traversing-ast/code2ast.png" target="_blank">
+              Example of an AST  
+              </a>
+            </span>
             <aside class="notes">
-            - JS is hosted in some environment: typically a browser or a web server (node)<br><br>
-            - Host esse tem uma espécie de JavaScript engine (e.g.: Google V8) que interpreta e executa o nosso código<br><br>
+            - <b>JS is hosted in some environment:</b> typically a browser or a web server (node)<br><br>
+            - Host esse tem uma espécie de <b>JavaScript engine</b> (e.g.: Google V8) que interpreta e executa o nosso código<br><br>
             - The region of the program where a binding between a variable and its name is valid<br><br>
             - 1. O código é analisado por um parser que lê o código linha a linha para analisar se sintaxe ok;<br>
             Parser sabe as regras do JS de forma em como deve ser escrito. Se encontra erro, emite erro e para execução<br><br>
@@ -581,9 +602,11 @@
             <span style="font-size:12px;">You don't know JS: Scopes & Closures</span>
             <aside class="notes">
             - 2, 4, 12<br><br>
+            - <b>scope</b> poderá ser entendido como o espaço onde as variáveis têm vida<br><br>
             - <b>global scope:</b> engloba apenas a função <b>foo</b><br><br>
             - <b>foo scope:</b>engloba <b>a</b>, <b>bar</b> e <b>b</b><br><br>
-            - <b>bar scope:</b> engloba apenas a variável <b>c</b>><br><br>
+            - <b>bar scope:</b> engloba apenas a variável <b>c</b><br><br>
+            - A relatively basic concept in JavaScript is that each declared function creates its own scope.<br><br>
             - Engine executa o console.log e vai procurar referências das variáveis a,b e c. Começa no scope mais interno
             e vai subindo até encontrar. Para na primeira correspondência.
             </aside>
@@ -667,8 +690,11 @@
             <h3>Execution Context <br>and the<br> Execution Stack</h3>
             <ul>
               <li><span style="font-size: 20px;">Execution contexts are environments where JavaScript code run.</span></li>
-              <li><span style="font-size: 20px;">Image Execution Context like a box which store variables and which a piece of our code is evaluated and executed</span></li>
+              <li><span style="font-size: 20px;">Imagine Execution Context like a box which store variables and which a piece of our code is evaluated and executed</span></li>
             </ul>
+            <aside class="notes">
+              Introduz o tema de como é executado o nosso código em JavaScript
+            </aside>
           </section>
 
           <!--Call Stack-->
@@ -715,13 +741,13 @@
                 <td width="70%">
                   <div style="display: inline-block;" class="fragment fade-up">
                     <ol>
-                      <li><b><span style="color:yellow;">Creation phase:<></b></li>
+                      <li><b><span style="color:yellow;">Creation phase</span>:</b></li>
                         <ol>
                           <li>Creation of the <span style="color:yellow;">Variable Object (VO)</span>, aka <span style="color:yellow;">Activation Object</span></li>
                           <li>Creation of the <span style="color:yellow;">scope chain</span></li>
                           <li>Determine value of the <span style="color:yellow;">'this'</span> value</li>
                         </ol>
-                      <li><b><span style="color:yellow;">Execution phase:</span></b> the code of the function that generated the current Execution Context is ran line by line</li>
+                      <li><b><span style="color:yellow;">Execution phase</span>:</b> the code of the function that generated the current Execution Context is ran line by line</li>
                     </ol>
                   </div>
                 </td>
@@ -891,6 +917,7 @@
                 }
                 
                 var sayMyName = buildName("John");
+                sayMyName();
               </code></pre>
               <aside class="notes">
                 - Whenever a function is invoked, a new scope is created for that call.<br>
@@ -1373,9 +1400,9 @@
             <img src="images/promise_states.JPG" style="border: 0px;" />
             <aside class="notes">
               A Promise has four states:<br><br>
-              - <b>fulfilled:</b> Action related to the promise succeeded
-              - <b>rejected:</b> Action related to the promise failed
-              - <b>pending:</b> Promise is still pending i.e not fulfilled or rejected yet
+              - <b>fulfilled:</b> Action related to the promise succeeded<br><br>
+              - <b>rejected:</b> Action related to the promise failed<br><br>
+              - <b>pending:</b> Promise is still pending i.e not fulfilled or rejected yet<br><br>
               - <b>settled:</b> Promise has fulfilled or rejected
             </aside>
           </section>
@@ -1482,9 +1509,7 @@
             <br>
             <span style="font-size: 20px;">ECMA: European Computer Manufacturers Association</span>
             <aside class="notes">
-              <b>Asynchronous JavaScript</b> a fancy term for some code that keeps running in the backgroun
-              while our main code is still executing.<br><br>
-              - ES6 é retro-compatível
+              - <b>ES6 é retro-compatível</b>
             </aside>
           </section>
 
@@ -1533,12 +1558,13 @@
               <br><br>
               <b>Let:</b> let declarations attach to the block scope.
                           block scoped variables are not initialized until
-                          they appear in the block
-              <br>Const:<br> Read-only block scoped variable declaration
+                          they appear in the block<br><br>
+              <b>Const:<b> Read-only block scoped variable declaration
               <br><br>
-              Lopes da Silva
+              <b>Resultados</b>
+              - Lopes da Silva
               <br>
-              TypeError
+              - TypeError
               <br>
               Lopes e ReferenceError
             </aside>
