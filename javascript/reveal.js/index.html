@@ -1561,7 +1561,7 @@
               <b>Let:</b> let declarations attach to the block scope.
                           block scoped variables are not initialized until
                           they appear in the block<br><br>
-              <b>Const:<b> Read-only block scoped variable declaration
+              <b>Const:</b> Read-only block scoped variable declaration
               <br><br>
               <b>Resultados</b>
               - Lopes da Silva
@@ -1703,59 +1703,59 @@
 
           <!--Destructuring-->
           <section>
-              <h3>Destructuring</h3>
-              <pre style="width: 100%;"><code data-trim data-line-numbers contenteditable="true">
-                // ES5
-                var arraio = ['Zé', 20];
-                var name = arraio[0];
-                var age5 = arraio[1];
+            <h3>Destructuring</h3>
+            <pre style="width: 100%;"><code data-trim data-line-numbers contenteditable="true">
+              // ES5
+              var arraio = ['Zé', 20];
+              var name = arraio[0];
+              var age5 = arraio[1];
 
-                var obj6 = {
-                  name: 'Zé',
-                  age: 30
-                };
-                var name = obj6.name
-              </code></pre> 
-              <pre style="width: 100%;"><code data-trim data-line-numbers contenteditable="true">
-                // ES6
-                const arraio = ['Zé', 30];
-                const [name, age] = arraio
+              var obj6 = {
+                name: 'Zé',
+                age: 30
+              };
+              var name = obj6.name
+            </code></pre> 
+            <pre style="width: 100%;"><code data-trim data-line-numbers contenteditable="true">
+              // ES6
+              const arraio = ['Zé', 30];
+              const [name, age] = arraio
 
-                const obj = {
-                  name: 'Zé',
-                  age: 30
-                };
-                const { name } = obj;
-              </code></pre>
-              <aside class="notes">
-                - Discarding non interesting properites form objects is easy
-                  (por exemplo, não estamos a ir buscar a idade)
-                <br><br>
-                - os nomes convem que sejam os mesmos ou então ficam do tipo<br>
-                  nome_da_prop: nome_pretendido
-              </aside>
-            </section>
+              const obj = {
+                name: 'Zé',
+                age: 30
+              };
+              const { name } = obj;
+            </code></pre>
+            <aside class="notes">
+              - Discarding non interesting properites form objects is easy
+                (por exemplo, não estamos a ir buscar a idade)
+              <br><br>
+              - os nomes convem que sejam os mesmos ou então ficam do tipo<br>
+                nome_da_prop: nome_pretendido
+            </aside>
+          </section>
 
-            <!--Spread Operator-->
-            <section>
-              <h3>Spread Operator</h3>
-              <ul>
-                <li>When used in front of an array it will <span style="color: yellow;">spread out</span> into its <span style="color: yellow;">individual values</span></li>
-                <li>A convenient way to expand elements of an <span style="color: yellow;">array</span> in places like <span style="color: yellow;">arguments</span> and <span style="color: yellow;">function calls</span></li>
-              </ul>
-              <pre style="width: 100%;"><code data-trim data-line-numbers contenteditable="true">
-                const ages = [18, 30, 12, 21];
-                function addFourAges(a, b, c, d) {
-                  return a + b + c + d;
-                }
-                // ES 5
-                const result1 = addFourAges(ages[0], ages[1], ages[2], ages[3]);
-                console.log(result1);
-                // ES 6
-                const result2 = addFourAges(...ages);
-                console.log(result2);
-              </code></pre>
-            </section>
+          <!--Spread Operator-->
+          <section>
+            <h3>Spread Operator</h3>
+            <ul>
+              <li>When used in front of an array it will <span style="color: yellow;">spread out</span> into its <span style="color: yellow;">individual values</span></li>
+              <li>A convenient way to expand elements of an <span style="color: yellow;">array</span> in places like <span style="color: yellow;">arguments</span> and <span style="color: yellow;">function calls</span></li>
+            </ul>
+            <pre style="width: 100%;"><code data-trim data-line-numbers contenteditable="true">
+              const ages = [18, 30, 12, 21];
+              function addFourAges(a, b, c, d) {
+                return a + b + c + d;
+              }
+              // ES 5
+              const result1 = addFourAges(ages[0], ages[1], ages[2], ages[3]);
+              console.log(result1);
+              // ES 6
+              const result2 = addFourAges(...ages);
+              console.log(result2);
+            </code></pre>
+          </section>
 
           <!--Spread Operator-->
           <section>
@@ -1893,17 +1893,7 @@
             <img src="images/the_end.gif" style="border: 0px; width: 35%; height:35%;" />
           </section>
 
-          <!--Last-->
 
-          <section>
-            <h3>References</h3>
-            Some pictures and code from:
-            <ul>
-              <li><a href="https://www.udemy.com/the-complete-javascript-course/" target="_blank">The Complete JavaScript Course 2019: Build Real Projects!</a> (Jonas Schmedtmann)</li>
-              <li><a href="https://github.com/getify/You-Dont-Know-JS" target="_blank">You don't know JS</a> (Kyle Simpson)</li>
-              <li><a href="https://www.academiadecodigo.org/" targe="_blank">Academia de Código</a></li>
-            </ul>
-          </section>
         </section>        
         
 
