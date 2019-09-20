@@ -67,12 +67,6 @@
               <li>Cross-platform</li>
               <li>Object-oriented</li>
             </ul>
-            <aside class="notes">
-              - <b>Lightweight:</b> não consome muita memória do computador.<br /><br />
-              - <b>Cross-platform:</b> pode ser usado em múltiplas plataformas e
-              sistemas, não apenas para web dev.<br /><br />
-              - <b>Object-oriented:</b> é baseada em objectos
-            </aside>
           </section>
 
           <!--Primitive Data Type-->
@@ -104,24 +98,6 @@
                 <td>true, false</td>
               </tr>
             </table>
-
-            <aside class="notes">
-              - A <b>primitive value</b> is an immutable piece of data that is
-              represented directly at the lowest level of the language
-              implementation. Não são objectos como a maioria do resto em js.<br><br>
-
-              - <b>Undefined:</b> Data type of a variable that does not have a value
-              yet. So is the value that is automatically assigned if a value is
-              not provided.<br /><br />
-              - <b>Null:</b> 'Non-existent' value that represents the intentional
-              absence of any object value. É do tipo <b>object</b>, o que é um bug<br /><br />
-              - <b>Number:</b> Floating point numbers, for decimal and integers. Always
-              floating point numbers. All have decimals even we sometimes don't
-              see or even don't define them.<br /><br />
-              - <b>String:</b> Sequence of characters, used for text<br /><br />
-              - <b>Boolean:</b> Logical data type that can only be true or false<br /><br>
-              falar dos Primitive Wrappers
-            </aside>
           </section>
 
           <!--Dynamic Typing-->
@@ -155,16 +131,6 @@
               </pre>
               "size" is a number but is logged as a string...Why?
             </div>
-            <aside class="notes">
-              - JavaScript has dynamic typing: data types are automatically
-              assigned to variables. If later we assign another value with
-              another type, js will automatically change the data type of the
-              variable as well.<br /><br />
-
-              - No caso do exemplo anterior, converte o valor numérico em
-              string, de forma a concatenar a strings para ser impresso pelo
-              console.log que escreve...strings
-            </aside>
           </section>
 
           <!--Type Coercion-->
@@ -185,19 +151,6 @@
 			      </code></pre>
             <b>Type Coercion</b> works thanks to <b>==</b> operator. To avoid
             type coercion, use strict equality <b>===</b>.
-          
-            <aside class="notes">
-              - <b>Conversão implicita</b>.<br /><br />
-              - JavaScript converte automaticamente de uns types pra outros, como
-              precisar.<br /><br />
-              - <b>+:</b> em JavaScript converte qualquer um dos operandos para string se
-              pelo menos um for string<br /><br />
-              - <b>Numeros com booleans:</b> booleans são coercidos para números pois são
-              considerados e implementados como valores numéricos com o digito
-              binário (bit)<br /><br />
-              - <b>===</b> verifica se o valor é o mesmo e se tem o mesmo tipo<br /><br />
-              - <b>==</b> verifica apenas se os valores podem ser coercidos um no outro
-            </aside>
           </section>
 
           <!--Type Coercion: Falsy-->
@@ -215,14 +168,6 @@
             <img src="images/not_a_pipe.jpg" width="40%" height="40%" />
             <h3>Truthy Values</h3>
             ! Falsy Values
-            <aside class="notes">
-              - The falsy values in JavaScript are values that can be coerced into false. There are six falsy values, with everything else being truthy.<br><br>
-              - You may be wondering why JavaScript has both <b>null</b> and <b>undefined</b>, and what the <b>difference</b> may be between the two.<br><br>
-              Typically, <b>undefined</b> is when a value has not been defined by the user. When accessing an index in an array or a key in an object that doesn’t exist, you may get undefined.
-              Similarly, if you have defined a variable or a flunction but you misspell it when trying to use it, you may get an error such as variable is not defined.<br><br>
-              - <b>Null</b>, however, does not imply that a value has been forgotten to be declared or doesn’t exist.
-            Typically, a human has intentionally assigned a value to null to imply that the value should start out as null but may possibly change.
-            </aside>
           </section>
 
           <section>
@@ -245,12 +190,6 @@
               <li>Load before any code is executed (thanks to <b>Hoisting</b>)</li>
               <li>Use when you want to create a function on the global <b>scope</b> and make it available throughout your code</li>
             </ul>
-            <aside class="notes">
-              - <b>Function declarations/statements:</b> funções com nome que executam acções. Isto é, fazem coisas mas não produzem resultados imediatos.<br><br>
-              - if...else, while loop e declaração de funções não produzem valores imediatos, sendo chamados de statements.<br><br>
-              - <b>Hoisting:</b> Specifically, all of the functions written with function declarations are “known” before any code is run.
-                This allows you to call a function before you declare. The objects are initialized at compile time and available anywhere in your file.
-            </aside>
           </section>
 
           <!--Functions: Function Expressions-->
@@ -274,14 +213,6 @@
                 return a1 + b2;
               };
             </code></pre>
-            <aside class="notes">
-              - <b>Function expressions:</b> o nome pode ser emitido, tornando-as anónimas. Produzem sempre um valor. Sempre que o JavaScript espera um valor,
-                temos que escrever uma expresão.<br><br>                
-              - Instead of your program being aware of many different functions, when you keep them anonymous, they are used and forgotten immediately.<br><br>
-              - Which one you chose is almost entirely a matter of personal taste. I think the more important thing is to pick one style of 
-                writing functions and stick with it throughout your script.<br><br>
-              - <b>IIFE:</b> Immediately Invoked Function Expressions.
-              </aside>
           </section>
 
           <!--IIE-->
@@ -298,11 +229,6 @@
             console.log(team);  // undefined because it isn't available
             </code></pre>
             It allows to avoid global scope pollution.
-            <aside class="notes">
-              - This function will execute immediately<br><br>
-              - Extra parenthesis are required to tell the interpreter<br><br>
-              - This is a function expression and not a declaration
-            </aside>
           </section>
 
           <!--Arrays-->
@@ -322,11 +248,6 @@
               arr.length;     // ?
               typeof arr[4]; // ?
             </code></pre>
-            <aside class="notes">
-              - object<br><br>
-              - 10<br><br>
-              - undefined<br><br>
-            </aside>
           </section>
 
           <!--Arrays: Queues and Stacks-->
@@ -387,11 +308,6 @@
             }, 0); // 10
 
             </code></pre>
-            <aside class="notes">
-              - <b>Importante:</b> The original array objects are not mutated by map, filter or reduce
-              <br><br>
-              Na prática retorna uma cópia
-            </aside>
           </section>
 
           <!-- Arrays: iteration and how to copy?-->
@@ -408,19 +324,6 @@
                 b = // ?
               </code></pre>
             </div>
-            <aside class="notes">
-              <b>a</b> e <b>b</b> ficam iguais, ou seja [1, 9, 0, 4, 38]            
-              <br><br>
-              <b>b = a.slice();</b> para cópia integral do array.
-              <br><br>Pode especificar (a partir de posicao, até posicao)<br><br>
-              Arrays sao mutaveis, estamos a mexer diretamente com referencias de memoria<br><br>
-              Para <b>copiar um objecto</b>, podemos usar o <b>spread operator</b> (ES6)<br>
-              var obj = { foo: "foo", bar: "bar" };<br>
-              var clonedObj = { ...obj };<br><br>
-              ou o <b>Object.assign</b><br><br>
-                var obj = { foo: "foo", bar: "bar" };<br>
-                var clonedObj = Object.assign({}, obj);
-            </aside>
           </section>
 
           <!--References-->
@@ -501,9 +404,6 @@
                 </td>
               </tr>
             </table>
-            <aside class="notes">
-              mostrar como se <b>copia um objecto</b> com o <b>Object.assign({}, objecto_a_copiar)</b>
-            </aside>
           </section>
             
           <!--Objects and methods-->
@@ -523,9 +423,6 @@
               person.name = ['Bruno Lage'];
               person['age']: 43;
             </code></pre>
-            <aside class="notes">
-              - o <i>this</i> aponta para o presente/atual objecto
-            </aside>
           </section>
 
           <!--Challenge 2-->
@@ -573,16 +470,6 @@
               Example of an AST  
               </a>
             </span>
-            <aside class="notes">
-            - <b>JS is hosted in some environment:</b> typically a browser or a web server (node)<br><br>
-            - Host esse tem uma espécie de <b>JavaScript engine</b> (e.g.: Google V8) que interpreta e executa o nosso código<br><br>
-            - The region of the program where a binding between a variable and its name is valid<br><br>
-            - 1. O código é analisado por um parser que lê o código linha a linha para analisar se sintaxe ok;<br>
-            Parser sabe as regras do JS de forma em como deve ser escrito. Se encontra erro, emite erro e para execução<br><br>
-            - 2. Se tudo ok, parser produz estrutra de dados (Abstract Syntax Tree) que, de seguida, é traduzido para código máquina.<br>
-            Deixa de ser código JS para ser um conjunto de instruções
-            - 3. Se tudo ok, então corre
-            </aside>
           </section>
 
           <!--Lexical Scope-->
@@ -600,16 +487,6 @@
               foo(2); // ? 
             </code></pre>
             <span style="font-size:12px;">You don't know JS: Scopes & Closures</span>
-            <aside class="notes">
-            - 2, 4, 12<br><br>
-            - <b>scope</b> poderá ser entendido como o espaço onde as variáveis têm vida<br><br>
-            - <b>global scope:</b> engloba apenas a função <b>foo</b><br><br>
-            - <b>foo scope:</b>engloba <b>a</b>, <b>bar</b> e <b>b</b><br><br>
-            - <b>bar scope:</b> engloba apenas a variável <b>c</b><br><br>
-            - A relatively basic concept in JavaScript is that each declared function creates its own scope.<br><br>
-            - Engine executa o console.log e vai procurar referências das variáveis a,b e c. Começa no scope mais interno
-            e vai subindo até encontrar. Para na primeira correspondência.
-            </aside>
           </section>
 
           <!--Hoisting-->
@@ -640,10 +517,6 @@
                 </tr>
               </table>
             </div>
-            <aside class="notes">
-            - 2 e undefined<br><br>
-            - <b>ovo:</b> declaração. <b>galinha:</b> atribuição do valor;
-            </aside>
           </section>
           
           <!--Hoisting: Chicken or the Egg?-->
@@ -667,21 +540,6 @@
             <div style="display: inline-block;" class="fragment fade-up">
               <img src="images/eggs.jpg" width="35%" height="35%">
             </div>
-            <aside class="notes">
-            - Hoisting is per-scope.<br><br>
-            - Declaração de funções e variáveis são hoisted, mas as funções são hoisted primeiro que as variáveis<br><br>
-            
-            foo(); // 1<br>
-            var foo;<br>
-            function foo() { console.log(1); }<br>
-            foo = function() { console.log(2); }<br>
-            <br><br>
-            este código é interpretado pelo engine como:
-            <br><br>
-            function foo() { console.log(1); }<br>
-            foo(); // 1<br>
-            foo = function() { console.log(2); }<br>
-            </aside>
           </section>
 
           <!--Call Stack-->
@@ -692,9 +550,6 @@
               <li><span style="font-size: 20px;">Execution contexts are environments where JavaScript code run.</span></li>
               <li><span style="font-size: 20px;">Imagine Execution Context like a box which store variables and which a piece of our code is evaluated and executed</span></li>
             </ul>
-            <aside class="notes">
-              Introduz o tema de como é executado o nosso código em JavaScript
-            </aside>
           </section>
 
           <!--Call Stack-->
@@ -719,9 +574,6 @@
                 ze == window.ze // true
               </code></pre>
             </div>
-            <aside class="notes">
-              - <b>Global context</b> não está em funções e está associado ao <b>global object</b>, aka window nos browsers.
-            </aside>
           </section>
 
           <!--Call Stack: Execution Context-->
@@ -753,11 +605,6 @@
                 </td>
               </tr>
             </table>
-            <aside class="notes">
-              - <b>Variable Object (VO):</b> object that contains function arguments, inner variable and function declarations</br></br>
-              - <b>Scope Chain:</b> contains the current variable objects as well the variable objects of all its parents</br></br>
-              - <b>'this' value:</b></br></br>
-            </aside>
           </section>
 
           <!--Execution Context: Activation Object-->
@@ -801,10 +648,6 @@
                 </td>
               </tr>
             </table>
-            <aside class="notes">
-              - When a function is activated (called), the interpreter scans the function for arguments and local variables or local function declarations</br></br>
-              - The result of this scan becomes the Activation object and is the reason why hoisting occurs</br></br>
-            </aside>
           </section>
 
           <!--Execution Context: Scope Chain-->
@@ -812,10 +655,6 @@
             <h5>Execution Context</h5>
             <h3>Scope Chain</h3>
             <img src="images/scope_chain.png" width="100%" height="100%">
-            <aside class="notes">
-              - As variáveis vão sendo procuradas nos scopes acima sempre que não encontradas onde "deviam"<br><br>
-              - O sentido inverso não ocorre. O global scope não tem acesso a veriáveis b ou c</br></br>
-            </aside>
           </section>
 
           <!--Execution Context: Execution stack vs Scope Chain-->
@@ -823,9 +662,6 @@
             <h5>Execution Context</h5>
             <h3>Execution Stack vs Scope Chain</h3>
             <img src="images/execution_stack_vs_scope_chain.png" width="100%" height="100%">
-            <aside class="notes">
-              fazer umas demos random com scopes
-            </aside>
           </section>
 
           <!--Execution Context: this-->
@@ -847,9 +683,6 @@
                 <b>Method call:</b> the <span style="color: yellow;">this</span> keyword points to the object that is calling the method.
               </li>
             </ul>
-            <aside class="notes">
-              Métodos são funções dentro de objectos.
-            </aside>
           </section>
 
           <!--Execution Context: This in practice & Borrow methods-->
@@ -878,10 +711,6 @@
                     </code></pre>
               
             </div>
-            <aside class="notes">
-              ver support_material/1_this_in_practice.js<br><br>
-              e fazendo exemplo a exemplo e ir perguntando o output
-            </aside>
           </section>
 
           <!--Closures-->
@@ -920,18 +749,6 @@
                 var sayMyName = buildName("John");
                 sayMyName();
               </code></pre>
-              <aside class="notes">
-                - Whenever a function is invoked, a new scope is created for that call.<br>
-                The local variable declared inside the function belong to that scope – they can only be accessed from that function -.<br>
-                It’s very important to understand that before moving further.<br><br>
-                
-                Remember:<br><br>
-                  
-                - The function scope is created for a function call, not for the function itself<br><br>
-                - Every function call creates a new scope<br><br>
-                
-                When the function has finished the execution, the scope is usually destroyed
-              </aside>
             </section>
 
             <!--Closures-->
@@ -951,49 +768,30 @@
             <section data-transition="fade-in fade-out">
               <h3>Closures</h3>
               <img src="images/closure1.JPG" width="100%" height="100%">
-              <aside class="notes">
-                a nova função recebe um novo Execution Context, colocado no topo da Execution Stack
-              </aside>
             </section>
             <section data-transition="fade-in fade-out">
               <h3>Closures</h3>
               <img src="images/closure2.JPG" width="100%" height="100%">
-              <aside class="notes">
-                O Execution Context tem um objecto que guardas as variáveis, scope chain e a variável this.<br><br>
-                O Scope Chain mostra as variáveis a que a função tem acesso: retirement = 66, a = 'Years...'
-              </aside>
             </section>
             <section data-transition="fade-in fade-out">
               <h3>Closures</h3>
               <img src="images/closure3.JPG" width="100%" height="100%">
-              <aside class="notes">
-                Ao sair do Execution Context (após retornar), o Variable/Activation Object e o Scope Chaing não desaparece.<br><br>
-                Este é o segredo das closures. O VO permanece em memória e pode ser acedido
-              </aside>
             </section>
             <section data-transition="fade-in fade-out">
               <h3>Closures</h3>
               <img src="images/closure4.JPG" width="100%" height="100%">
-              <aside class="notes">
-              </aside>
             </section>
             <section data-transition="fade-in fade-out">
               <h3>Closures</h3>
               <img src="images/closure5.JPG" width="100%" height="100%">
-              <aside class="notes">
-              </aside>
             </section>
             <section data-transition="fade-in fade-out">
               <h3>Closures</h3>
               <img src="images/closure6.JPG" width="100%" height="100%">
-              <aside class="notes">
-              </aside>
             </section>
             <section data-transition="fade-in fade-out">
               <h3>Closures</h3>
               <img src="images/closure7.JPG" width="100%" height="100%">
-              <aside class="notes">
-              </aside>
             </section>
 
             <!--Closures-->
@@ -1021,23 +819,6 @@
               <div style="display: inline-block;" class="fragment fade-up">
                 <span style="font-size: 20px;">How to fix this?</span>
               </div>
-              <aside class="notes">
-                - Push will create new execution context with reference to i<br><br>
-                - Criar uma função anónima que aceita o i como param e e retorna essa função<br><br>
-                - ver o support_material/3_closure_counter_ctrl.js<br><br>
-                var funcs = [];<br>
-                for (var i = 0; i < 3; i++) {<br>
-                  // push will create new execution context with reference to i<br>
-                  funcs.push((function(i) {<br>
-                    return function() {<br>
-                      console.log(i);<br>
-                        }<br>
-                  })(i));<br>
-                }<br>
-                funcs[0](); // 0<br>
-                funcs[1](); // 1<br>
-                funcs[2](); // 2<br>
-              </aside>
             </section>
 
             <!--Objects: Inheritance and the Prototype Chain-->
@@ -1071,14 +852,6 @@
                 var ze = new Person('Zé', 1993, 'teacher');
                 var maria = new Person('Maria', 1992, 'nurse');
               </code></pre>
-              <aside class="notes">
-                Um objecto que serve de blueprint para construir mais objectos deste tipo<br><br>
-                Outras linguagens chamam de class.<br><br>
-                Em JavaScript é chamado de Constructor ou Prototype.<br><br>
-                Com base neste construtor, podemos criar tantas instancias quanto queiramos.<br><br>
-                O operador new evita que a variable this aponte para o Global Object, como seria de esperar numa regular function call.<br>
-                Graças ao new, o this fica a apontar para o novo objecto vazio entretanto criado.
-              </aside>
             </section>
 
             <!--Prototype-->
@@ -1119,10 +892,6 @@
                 <li>JavaScript is a prototype-base language</li>
               </ul>
               <img src="images/prototype_chain.JPG" />
-              <aside class="notes">
-                - Prototype-based significa que herança funciona através da utilização de prototypes.<br><br>
-                - Na prática significa que todos os objectos tem uma propriedade prototype<br><br>
-              </aside>
             </section>
 
         </section>
@@ -1135,11 +904,6 @@
           <section>
             <h3>Asynchronous JavaScript</h3>
             <img src="images/async_intro.jpeg" style="border: 0px; width:50%; height: 50%;" />
-            <aside class="notes">
-              <b>Asynchronous JavaScript</b> a fancy term for some code that keeps running in the backgroun
-              while our main code is still executing.<br><br>
-              - Sincrono significa que uma instrução é processada uma após a outra, linha a linha
-            </aside>
           </section>
           
           <!--Callback functions-->
@@ -1167,17 +931,6 @@
 
               setInterval(ring, 1000);
             </code></pre>
-            <aside class="notes">
-                In JavaScript, functions are objects. Because of this, functions can take
-                functions as arguments, and can be returned by other functions. Functions
-                that do this are called higher-order functions. Any function that is passed as an
-                argument is called a callback function.<br><br>
-                In JavaScript, functions are first-class objects, which means they can be:<br>
-
-                stored in a variable, object, or array<br>
-                passed as an argument to a function<br>
-                returned from a function
-            </aside>
           </section>
 
           <!--An example-->
@@ -1222,21 +975,6 @@
                 </td>
               </tr>
             </table>
-            <aside class="notes">
-              - No sincrono, as instruções correm uma depois da outra, linha a linha<br><br>
-              - setTimeOut faz parte da API do browser e permite correr o código x tempo depois<br><br>
-              - Precisamos de passar as chamadas <b>callback functions</b> para correr após o evento ocorrer,
-                neste caso, passar x segundos.<br><br>
-              - Contudo, o código nao para os x segundos: a função second() retorna praa a first() 
-                que imprime o 'The End'. Depois, após os x segundos passarem, o 'Async!' é imprimido.<br><br>
-              - Porque é que isto acontece? Porque a "magia" do código assync é correr as funções de callback
-                quando os eventos acontecem/terminam. Não esperamos que uma função termine o seu trabalho,
-                para fazer algo com o resultado de seguida. Em vez disso, enviamos a callback function para fazer
-                o trabalho em background.<br><br>
-              - As funções de callback são chamadas assim que a main thread/function estiver disponível, 
-                ou seja, utilizamos para fazer trabalho futuro.<br><br>
-              - Daí ser non-blocking
-            </aside>
           </section>
 
           <!--Intro: Concurrency-->
@@ -1258,14 +996,6 @@
             </ul>
             <br><br>
             programming language.
-            <aside class="notes">
-              - <b>single-thread:</b> apenas uma Call Stack (The Call Stack is a data structure which 
-                records basically where in the program we are. )<br><br>
-              - Em JS, quase todos os I/O são não-bloqueantes, como por exemplo:
-                HTTP requests, operações de DB, leituras/escritas ao disco<br><br>
-              - Na verdade o JS usa algumas APIs (que não existem no engine, V8 por exemplo)
-                 para realizar operações assincronas,como "setTimeout", HTTP requests, DOM
-            </aside>
           </section>
 
           <!--Concurrency Model-->
@@ -1276,16 +1006,6 @@
             <img src="images/event_loop.jpg" width="35%" height="35%" />
             <br>
             <span style="font-size: 20px;">This model is quite different from models in other languages like C and Java where concurrency is acheived mainly via parallel code execution using threads</span>
-            <aside class="notes">
-              - The JavaScript engine runs inside an execution environment such as the Browser
-                or Node.js<br><br>
-              - This environment exposes many APIs to the JavaScript engine, such as the DOM
-                 or XMLHttpRequest (browser) or the Timers (both)<br><br>
-              - A main (single) thread pede para o runtime fazer uma dessas operações fornecendo
-              uma função de callback. Do tipo: "quando alguém clicar aqui, corre esta função"<br><br>
-              - Quando a operação é executada é colocada numa fila com a função de callback<br><br>
-              - Em algu mommento, a mensagem sai da fila e é disparada a função de callback
-            </aside>
           </section>
 
           <!--Event Loop-->
@@ -1400,13 +1120,6 @@
           <section>
             <h3>Promises States</h3>
             <img src="images/promise_states.JPG" style="border: 0px;" />
-            <aside class="notes">
-              A Promise has four states:<br><br>
-              - <b>fulfilled:</b> Action related to the promise succeeded<br><br>
-              - <b>rejected:</b> Action related to the promise failed<br><br>
-              - <b>pending:</b> Promise is still pending i.e not fulfilled or rejected yet<br><br>
-              - <b>settled:</b> Promise has fulfilled or rejected
-            </aside>
           </section>
 
           <!--Promises-->
@@ -1450,10 +1163,6 @@
             <h1>Async/Await</h1>
             <h5>ES8/2017 feature</h5>
             <img src="images/lord.jpeg" />
-            <aside class="notes">
-              - Permite escrever código assincrono num estilo sincrono.<br><br>
-              - Foi desenhado para consumir Promises e não para as produzir.
-            </aside>
           </section>
 
           <!--The Async & The Await-->
@@ -1464,9 +1173,6 @@
               <li><span style="color: yellow;">async</span> functions always return a Promise!</li>
               <li><span style="color: yellow;">await</span> defers the execution of the remaining function code until the promise is fulfilled!</li>
             </ul>
-            <aside class="notes">
-              await só pode ser usado dentro de async functions
-            </aside>
           </section>
 
           <!--Async/Await vs Promises-->
@@ -1510,9 +1216,6 @@
             <span style="font-size: 20px;">ES: ECMA Script</span>
             <br>
             <span style="font-size: 20px;">ECMA: European Computer Manufacturers Association</span>
-            <aside class="notes">
-              - <b>ES6 é retro-compatível</b>
-            </aside>
           </section>
 
           <!--ES6/2015-->
@@ -1555,21 +1258,6 @@
               console.log(name5); // ?
               console.log(name6); // ?
             </code></pre>
-            <aside class="notes">
-              Substitui a utilização de var<br><br>
-              <br><br>
-              <b>Let:</b> let declarations attach to the block scope.
-                          block scoped variables are not initialized until
-                          they appear in the block<br><br>
-              <b>Const:</b> Read-only block scoped variable declaration
-              <br><br>
-              <b>Resultados</b>
-              - Lopes da Silva
-              <br>
-              - TypeError
-              <br>
-              Lopes e ReferenceError
-            </aside>
           </section>
 
           <!--Strings-->
@@ -1627,17 +1315,21 @@
           <section>
             <h3>Arrow Functions =></h3>
             <pre><code data-trim data-line-numbers contenteditable="true">
-              // How can we fix this?
               let person = {
-                name: 'Eusébio',
-                greeting: `Hello ${name}!`,
+                name: "Eusébio",
+                greeting() {
+                  return `Hello ${this.name}!`; 
+                },
                 delayedHello(delay) {
-                  setTimeout(function() {
-                    console.log(this.greeting);
-                  }, delay);
+                  (function(greeting) {
+                    setTimeout(function() {
+                      console.log(greeting);
+                    }, delay);
+                  })(this.greeting());
                 }
               };
-              person.delayedHello(1000); // undefined
+              
+              person.delayedHello(1000);
             </code></pre>
             <span style="font-size: 20px;">Next slide has the solution. Old and new ways.</span>
           </section>
@@ -1684,12 +1376,6 @@
                 </td>
               </tr>
             </table>
-            <aside class="notes">
-              Arrow Functions partilham o 'this' que já existe à volta
-              <br><br>
-              Isto significa que não são como as funções normais que têm o seu próprio 'this'.<br>
-              As arrow functions não tem o seu próprio 'this', usam o 'this' das outer functions.
-            </aside>
           </section>
 
           <!--Destructuring-->
@@ -1727,13 +1413,6 @@
               };
               const { name } = obj;
             </code></pre>
-            <aside class="notes">
-              - Discarding non interesting properites form objects is easy
-                (por exemplo, não estamos a ir buscar a idade)
-              <br><br>
-              - os nomes convem que sejam os mesmos ou então ficam do tipo<br>
-                nome_da_prop: nome_pretendido
-            </aside>
           </section>
 
           <!--Spread Operator-->
@@ -1822,11 +1501,6 @@
                       }
                     }
                   </code></pre>
-                  <aside class="notes">
-                    - Utiliza a keyword <b>class</b><br><br>
-                    - Utiliza o <b>constructor</b> como construtor para inicializar a classe<br><br>
-                    - <b>static methods:</b> not inherited by the class instances
-                  </aside>
                 </td>
               </tr>
             </table>
