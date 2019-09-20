@@ -19,6 +19,6 @@
     return json;
   }
 
-  const repos = await getRepositories();
+  const repos = await get("http://api.github.com/repositories");
   console.log(repos);
 })();
