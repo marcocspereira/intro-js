@@ -1,16 +1,20 @@
-/* 
-fetch("http://api.github.com/repositories", {
-  method: "GET"
-})
-  .then(response => response.json())
-  .then(b => console.log(b))
-  .catch(a => console.log(a));
+/*
+  // example
+  async function getRepositories() {
+    const response = await fetch("http://api.github.com/repositories", {
+      method: "GET"
+    });
+    const json = await response.json();
+    return json;
+  }
  */
 
 (async function() {
   // inside this IIFE to not to not pollute global namespace
-  async function getRepositories() {
-    const response = await fetch("http://api.github.com/repositories");
+  async function get(url) {
+    const response = await fetch(`${url}`, {
+      method: "GET"
+    });
     const json = await response.json();
     return json;
   }
