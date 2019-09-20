@@ -7,13 +7,14 @@ fetch("http://api.github.com/repositories", {
   .catch(a => console.log(a));
  */
 
-async function getRepositories() {
-  const response = await fetch("http://api.github.com/repositories");
-  const json = await response.json();
-  return json;
-}
-
 (async function() {
+  // inside this IIFE to not to not pollute global namespace
+  async function getRepositories() {
+    const response = await fetch("http://api.github.com/repositories");
+    const json = await response.json();
+    return json;
+  }
+
   const repos = await getRepositories();
   console.log(repos);
 })();
