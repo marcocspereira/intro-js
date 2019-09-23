@@ -18,14 +18,14 @@ export class HeroDetailComponent implements OnInit {
     private _location: Location // service for interacting with the browser.
   ) {}
 
-  ngOnInit() {
-    this.getHero();
+  async ngOnInit() {
+    await this.getHero();
   }
 
-  getHero() {
+  async getHero() {
     // he JavaScript (+) operator converts the string to a number, which is what a hero id should be
     const id = +this._route.snapshot.paramMap.get("id");
-    this._heroService.getHero(id).subscribe(hero => (this.hero = hero));
+    await this._heroService.getHero(id);
   }
 
   save(): void {

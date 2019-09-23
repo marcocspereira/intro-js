@@ -32,14 +32,12 @@ export class HeroService {
     return await heroes.body;
   }
 
-  getHero(id: number): Observable<Hero> {
+  async getHero(id: number): Promise<Hero> {
+    const url = `${this._apiUrl}/fighters/${id}`;
     this._messageService.add(`HeroService: fetched hero id=${id}`);
     // return of(HEROES.find(hero => hero.id === id)); // old
-    const url = `${this.heroesUrl}/${id}`;
-    return this._http.get<Hero>(url).pipe(
-      tap(_ => this._log(`fetched hero id=${id}`)),
-      catchError(this._handleError<Hero>(`getHero id=${id}`))
-    );
+    const hero = await this._apiService.get(url);
+    return await hero.body;
   }
 
   updateHero(hero: Hero): Observable<any> {
@@ -49,11 +47,10 @@ export class HeroService {
     );
   }
 
-  addHero(hero: Hero): Observable<Hero> {
-    return this._http.post<Hero>(this.heroesUrl, hero, this.httpOptions).pipe(
-      tap((newHero: Hero) => this._log(`added hero w/ id=${newHero.id}`)),
-      catchError(this._handleError<Hero>("addHero"))
-    );
+  async addHero(hero: Hero): Promise<Hero> {
+    const url = `${this._apiUrl}/fighters`;
+    const createdHero = await this._apiService.post(url, hero);
+    return await createdHero.body;
   }
 
   deleteHero(hero: Hero | number): Observable<Hero> {

@@ -17,17 +17,16 @@ export class HeroesComponent implements OnInit {
   }
 
   async getHeroes() {
-    await this._heroService.getHeroes();
+    this.heroes = await this._heroService.getHeroes();
   }
 
-  add(name: string): void {
+  async add(name: string) {
     name = name.trim();
     if (!name) {
       return;
     }
-    this._heroService.addHero({ name } as Hero).subscribe(hero => {
-      this.heroes.push(hero);
-    });
+    const hero = await this._heroService.addHero({ name } as Hero);
+    this.heroes.push(hero);
   }
 
   delete(hero: Hero): void {
