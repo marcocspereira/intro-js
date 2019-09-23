@@ -1,3 +1,4 @@
+import { ApiService } from "./api.service";
 import { HeroSearchComponent } from "./heroes/hero-search/hero-search.component";
 import { InMemoryDataService } from "./in-memory-data.service";
 import { BrowserModule } from "@angular/platform-browser";
@@ -25,12 +26,13 @@ import { DashboardComponent } from "./dashboard/dashboard.component";
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule,
-    HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
+    HttpClientModule
+    // todo comment before to connect to api
+    /*     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
       dataEncapsulation: false
-    })
+    }) */
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -1,3 +1,4 @@
+import { ApiService } from "./../api.service";
 import { MessageService } from "./../messages/message.service";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { catchError, map, tap } from "rxjs/operators";
@@ -10,6 +11,7 @@ import { HEROES } from "./../mocks/mock-heroes";
   providedIn: "root"
 })
 export class HeroService {
+  private _apiUrl = "http://10.123.207.42:3000";
   private heroesUrl = "api/heroes"; // URL to web api
 
   httpOptions = {
@@ -18,15 +20,16 @@ export class HeroService {
 
   constructor(
     private _http: HttpClient,
+    private _apiService: ApiService,
     private _messageService: MessageService
   ) {}
 
-  getHeroes(): Observable<Hero[]> {
+  async getHeroes(): Promise<Hero[]> {
+    const url = `${this._apiUrl}/fighters`;
     this._messageService.add("HeroService: fetched heroes");
     // return of(HEROES); // old
-    return this._http
-      .get<Hero[]>(this.heroesUrl)
-      .pipe(catchError(this._handleError<Hero[]>("getHeroes", [])));
+    const heroes = await this._apiService.get(url);
+    return await heroes.body;
   }
 
   getHero(id: number): Observable<Hero> {
