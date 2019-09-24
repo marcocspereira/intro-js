@@ -12,12 +12,10 @@
 <!-- <app-hero-detail [hero]="selectedHero"></app-hero-detail>
  -->
 <div>
-  <label
-    >Hero name:
-    <input #heroName />
-  </label>
-  <!-- (click) passes input value to add() and then clears the input -->
-  <button (click)="add(heroName.value); heroName.value = ''">
+  <label>Hero name: <input #heroName/></label><br />
+  <label>Hero life: <input #heroLife/></label><br />
+  <label>Hero strength: <input #heroStrength/></label><br />
+  <button (click)="add(heroName.value, heroLife.value, heroStrength.value)">
     add
   </button>
 </div>

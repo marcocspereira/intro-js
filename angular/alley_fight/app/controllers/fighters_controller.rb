@@ -17,14 +17,13 @@ class FightersController < ApplicationController
     fighter = Fighter.new(fighter_params)
 
     if fighter.save
-      render status: :ok,
+      render status: :created,
              json: fighter
     else
       render status: :unprocessable_entity,
              json: fighter.errors
     end
 
-    render status: :created, json: fighter
   end
 
   def update

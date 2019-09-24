@@ -20,12 +20,18 @@ export class HeroesComponent implements OnInit {
     this.heroes = await this._heroService.getHeroes();
   }
 
-  async add(name: string) {
-    name = name.trim();
-    if (!name) {
+  async add(name: string, lifeStr: string, strengthStr: string) {
+    if (!name || !lifeStr || !strengthStr) {
       return;
     }
-    const hero = await this._heroService.addHero({ name } as Hero);
+    name = name.trim();
+    const life = +lifeStr;
+    const strength = +strengthStr;
+    const hero = await this._heroService.addHero({
+      name,
+      life,
+      strength
+    } as Hero);
     this.heroes.push(hero);
   }
 
