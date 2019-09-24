@@ -6,7 +6,15 @@ It is just the [tutorial](https://angular.io/tutorial) from angular.io.
 
 This mini project in Ruby-on-Rails is the API that feeds angular-tour-of-heroes angular project.
 
-In order to prepare this API to be OK to run, you need to create two environment files, for `development` (named `.env.development`) and `test` (named `.env.test`):
+After clone the project, the first time you want to run it, you have to config this API to be OK to run. So, you need to open a console and:
+
+- run bundle:
+
+```shell
+$ bundle
+```
+
+- create two environment files, for `development` (named `.env.development`) and `test` (named `.env.test`):
 
 ```ỳaml
 export RAILS_DB_PASSWORD="<your_db_>"
@@ -21,7 +29,7 @@ Then, run the following commands to create and populate your database:
 $ rails db:drop && rails db:create && rails db:migrate && rails db:seed
 ```
 
-To run (uses port 3000 by default):
+To run (uses port `3000` by default):
 
 ```shell
 $ rails s
@@ -41,7 +49,7 @@ This mini project is the Angular frontend project.
 
 Beware that you need to update the `_apiUrl`. At the moment it exists in each `.service.ts` that communicates with `àpi.service.ts`. Best scenario should use `environment.ts` files.
 
-To run (ies port 4200 by default):
+To run (ies port `4200` by default):
 
 ```shell
 $ ng serve
