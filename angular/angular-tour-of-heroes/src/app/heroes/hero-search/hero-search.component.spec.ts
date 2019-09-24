@@ -1,16 +1,21 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ApiService } from "./../../api.service";
+import { HttpClientTestingModule } from "@angular/common/http/testing";
+import { HeroService } from "./../hero.service";
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { HeroSearchComponent } from './hero-search.component';
+import { HeroSearchComponent } from "./hero-search.component";
+import { RouterTestingModule } from "@angular/router/testing";
 
-describe('HeroSearchComponent', () => {
+describe("HeroSearchComponent", () => {
   let component: HeroSearchComponent;
   let fixture: ComponentFixture<HeroSearchComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ HeroSearchComponent ]
-    })
-    .compileComponents();
+      imports: [RouterTestingModule, HttpClientTestingModule],
+      declarations: [HeroSearchComponent],
+      providers: [HeroService, ApiService]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
@@ -19,7 +24,7 @@ describe('HeroSearchComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });
