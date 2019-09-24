@@ -1,16 +1,19 @@
 # frozen_string_literal: true
 
-class FightersController < ApplicationController
+class FightersController < ApplicationController # :nodoc:
+
   def index
     fighters = Fighter.all
 
-    render status: :ok, json: fighters
+    render status: :ok,
+           json: fighters
   end
 
   def show
     fighter = Fighter.find(params[:id])
 
-    render status: :ok, json: fighter
+    render status: :ok,
+           json: fighter
   end
 
   def create
@@ -23,7 +26,6 @@ class FightersController < ApplicationController
       render status: :unprocessable_entity,
              json: fighter.errors
     end
-
   end
 
   def update
@@ -32,7 +34,19 @@ class FightersController < ApplicationController
     if fighter.update(fighter_params)
       render status: :ok, json: fighter
     else
-      render status: :unprocessable_entity, json: fighter.errors
+      render status: :unprocessable_entity,
+             json: fighter.errors
+    end
+  end
+
+  def destroy
+    fighter = Fighter.find(params[:id])
+
+    if fighter.destroy
+      render status: :ok
+    else
+      render status: :unprocessable_entity,
+             json: fighter.errors
     end
   end
 
