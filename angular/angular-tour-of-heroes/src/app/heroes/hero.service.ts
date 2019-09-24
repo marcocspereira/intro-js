@@ -40,11 +40,11 @@ export class HeroService {
     return await hero.body;
   }
 
-  updateHero(hero: Hero): Observable<any> {
-    return this._http.put(this.heroesUrl, hero, this.httpOptions).pipe(
-      tap(_ => this._log(`updated hero id=${hero.id}`)),
-      catchError(this._handleError<any>("updateHero"))
-    );
+  async updateHero(hero: Hero | number): Promise<Hero> {
+    const id = typeof hero === "number" ? hero : hero.id;
+    const url = `${this._apiUrl}/fighters/${id}`;
+    const updatedHero = await this._apiService.put(url, hero);
+    return await updatedHero.body;
   }
 
   async addHero(hero: Hero): Promise<Hero> {
@@ -53,14 +53,11 @@ export class HeroService {
     return await createdHero.body;
   }
 
-  deleteHero(hero: Hero | number): Observable<Hero> {
+  async deleteHero(hero: Hero | number): Promise<void> {
     const id = typeof hero === "number" ? hero : hero.id;
-    const url = `${this.heroesUrl}/${id}`;
-
-    return this._http.delete<Hero>(url, this.httpOptions).pipe(
-      tap(_ => this._log(`deleted hero id=${id}`)),
-      catchError(this._handleError<Hero>("deleteHero"))
-    );
+    const url = `${this._apiUrl}/fighters/${id}`;
+    const response = await this._apiService.delete(url);
+    await console.log(response.status);
   }
 
   searchHeroes(term: string): Observable<Hero[]> {

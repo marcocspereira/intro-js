@@ -1,11 +1,21 @@
 <div *ngIf="hero">
   <h2>{{ hero.name | uppercase }} details</h2>
-  <div><span>id: </span>{{ hero.id }}</div>
-  <div><span>name: </span>{{ hero.name }}</div>
+  <h3>To view</h3>
+  <div><label>id: </label>{{ hero.id }}</div>
+  <div><label>name: </label>{{ hero.name }}</div>
+  <div><label>life: </label>{{ hero.life }}</div>
+  <div><label>strength: </label>{{ hero.strength }}</div>
 
   <div>
+    <h3>To edit</h3>
     <label>name:</label>
     <input [(ngModel)]="hero.name" placeholder="name" />
+    <br />
+    <label>life:</label>
+    <input [(ngModel)]="hero.life" placeholder="life" />
+    <br />
+    <label>strength:</label>
+    <input [(ngModel)]="hero.strength" placeholder="strength" />
   </div>
 </div>
 

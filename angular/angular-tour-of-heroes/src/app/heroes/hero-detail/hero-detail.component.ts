@@ -25,11 +25,12 @@ export class HeroDetailComponent implements OnInit {
   async getHero() {
     // he JavaScript (+) operator converts the string to a number, which is what a hero id should be
     const id = +this._route.snapshot.paramMap.get("id");
-    await this._heroService.getHero(id);
+    this.hero = await this._heroService.getHero(id);
   }
 
-  save(): void {
-    this._heroService.updateHero(this.hero).subscribe(() => this.goBack());
+  async save(): Promise<void> {
+    await this._heroService.updateHero(this.hero);
+    this.goBack();
   }
 
   goBack(): void {

@@ -35,8 +35,8 @@ export class HeroesComponent implements OnInit {
     this.heroes.push(hero);
   }
 
-  delete(hero: Hero): void {
+  async delete(hero: Hero): Promise<void> {
     this.heroes = this.heroes.filter(h => h !== hero);
-    this._heroService.deleteHero(hero).subscribe();
+    this._heroService.deleteHero(hero);
   }
 }
