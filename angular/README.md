@@ -49,7 +49,7 @@ This mini project is the Angular frontend project.
 
 Beware that you need to update the `_apiUrl`. At the moment it exists in each `.service.ts` that communicates with `àpi.service.ts`. Best scenario should use `environment.ts` files.
 
-To run (ies port `4200` by default):
+To run (uses port `4200` by default):
 
 ```shell
 $ ng serve
@@ -59,7 +59,7 @@ $ ng serve
 
 You need to update the browser that Karma will use. At the moment is Chromium. To update, go to `karma.conf.ts` and update `browsers` entry.
 
-Then, tot run:
+Then, to run:
 
 ```shell
 $ ng test
