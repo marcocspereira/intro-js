@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Arena < ApplicationRecord
+class Arena < ApplicationRecord # :nodoc:
   has_many :fights
 
   validates(:name, presence: true, uniqueness: true)
