@@ -12,6 +12,7 @@ import { HttpClientInMemoryWebApiModule } from "angular-in-memory-web-api";
 import { HeroDetailComponent } from "./heroes/hero-detail/hero-detail.component";
 import { MessagesComponent } from "./messages/messages.component";
 import { DashboardComponent } from "./dashboard/dashboard.component";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { DashboardComponent } from "./dashboard/dashboard.component";
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
     // todo comment before to connect to api
     /*     HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
       dataEncapsulation: false
