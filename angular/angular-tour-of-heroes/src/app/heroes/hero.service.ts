@@ -1,21 +1,21 @@
-import { ApiService } from "./../api.service";
-import { MessageService } from "./../messages/message.service";
-import { HttpClient, HttpHeaders } from "@angular/common/http";
-import { catchError, map, tap } from "rxjs/operators";
-import { Hero } from "./../classes/hero";
-import { Injectable } from "@angular/core";
-import { Observable, of } from "rxjs";
-import { HEROES } from "./../mocks/mock-heroes";
+import { ApiService } from './../api.service';
+import { MessageService } from './../messages/message.service';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { catchError, map, tap } from 'rxjs/operators';
+import { Hero } from './../classes/hero';
+import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { HEROES } from './../mocks/mock-heroes';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class HeroService {
-  private _apiUrl = "http://10.123.207.42:3000";
-  private heroesUrl = "api/heroes"; // URL to web api
+  private _apiUrl = 'http://localhost:3000';
+  private heroesUrl = 'api/heroes'; // URL to web api
 
   httpOptions = {
-    headers: new HttpHeaders({ "Content-Type": "application/json" })
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
   constructor(
@@ -26,7 +26,7 @@ export class HeroService {
 
   async getHeroes(): Promise<Hero[]> {
     const url = `${this._apiUrl}/fighters`;
-    this._messageService.add("HeroService: fetched heroes");
+    this._messageService.add('HeroService: fetched heroes');
     // return of(HEROES); // old
     const heroes = await this._apiService.get(url);
     return await heroes.body;
@@ -41,7 +41,7 @@ export class HeroService {
   }
 
   async updateHero(hero: Hero | number): Promise<Hero> {
-    const id = typeof hero === "number" ? hero : hero.id;
+    const id = typeof hero === 'number' ? hero : hero.id;
     const url = `${this._apiUrl}/fighters/${id}`;
     const updatedHero = await this._apiService.put(url, hero);
     return await updatedHero.body;
@@ -54,7 +54,7 @@ export class HeroService {
   }
 
   async deleteHero(hero: Hero | number): Promise<void> {
-    const id = typeof hero === "number" ? hero : hero.id;
+    const id = typeof hero === 'number' ? hero : hero.id;
     const url = `${this._apiUrl}/fighters/${id}`;
     const response = await this._apiService.delete(url);
     await console.log(response.status);
@@ -67,11 +67,11 @@ export class HeroService {
     }
     return this._http.get<Hero[]>(`${this.heroesUrl}/?name=${term}`).pipe(
       tap(_ => this._log(`found heroes matching "${term}"`)),
-      catchError(this._handleError<Hero[]>("searchHeroes", []))
+      catchError(this._handleError<Hero[]>('searchHeroes', []))
     );
   }
 
-  private _handleError<T>(operation = "operation", result?: T) {
+  private _handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
       // TODO: send the error to remote logging infrastructure
       console.error(error); // log to console instead
