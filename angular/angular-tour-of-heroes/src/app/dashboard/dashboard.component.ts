@@ -1,3 +1,4 @@
+import { ArenaFight } from './../shared/classes/arena-fight';
 import { DashboardService } from './dashboard.service';
 import { HeroService } from './../heroes/hero.service';
 import { Component, OnInit } from '@angular/core';
@@ -10,7 +11,7 @@ import { Hero } from '../classes/hero';
 })
 export class DashboardComponent implements OnInit {
   heroes: Hero[] = [];
-  arenasFighter: any;
+  arenasFighter: ArenaFight[] = [];
 
   constructor(
     private _heroService: HeroService,
@@ -27,6 +28,9 @@ export class DashboardComponent implements OnInit {
   }
 
   async getNrOfFightsByArenas() {
-    this.arenasFighter = await this._dashboardService.getNrOfFightsByArenas();
+    const result = await this._dashboardService.getNrOfFightsByArenas();
+    for (let key in result) {
+      this.arenasFighter.push({ name: key, quantity: result[key] });
+    }
   }
 }

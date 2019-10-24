@@ -15,5 +15,9 @@
 
 <h4>NrOfFightsByArenas</h4>
 <div *ngIf="arenasFighter">
-  {{ arenasFighter | json }}
+  <ul>
+    <li *ngFor="let arena of arenasFighter">
+      {{ arena.name }} : {{ arena.quantity }}
+    </li>
+  </ul>
 </div>
