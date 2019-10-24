@@ -1,9 +1,12 @@
 # frozen_string_literal: true
 
 class FightersController < ApplicationController # :nodoc:
-
   def index
-    fighters = Fighter.all
+    fighters = if name
+                 Fighter.where('name like ?', "%#{name}%")
+               else
+                 Fighter.all
+               end
 
     render status: :ok,
            json: fighters
@@ -54,5 +57,9 @@ class FightersController < ApplicationController # :nodoc:
 
   def fighter_params
     params.require(:fighter).permit(:name, :strength, :life)
+  end
+
+  def name
+    params.permit('name')['name']
   end
 end

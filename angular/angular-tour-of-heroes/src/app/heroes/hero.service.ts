@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment';
 import { ApiService } from './../api.service';
 import { MessageService } from './../messages/message.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -6,13 +7,13 @@ import { Hero } from './../classes/hero';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { HEROES } from './../mocks/mock-heroes';
+import { debug } from 'util';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HeroService {
-  private _apiUrl = 'http://localhost:3000';
-  private heroesUrl = 'api/heroes'; // URL to web api
+  private _apiUrl = `${environment.apiUrl}/fighters`;
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -25,7 +26,7 @@ export class HeroService {
   ) {}
 
   async getHeroes(): Promise<Hero[]> {
-    const url = `${this._apiUrl}/fighters`;
+    const url = `${this._apiUrl}`;
     this._messageService.add('HeroService: fetched heroes');
     // return of(HEROES); // old
     const heroes = await this._apiService.get(url);
@@ -33,7 +34,7 @@ export class HeroService {
   }
 
   async getHero(id: number): Promise<Hero> {
-    const url = `${this._apiUrl}/fighters/${id}`;
+    const url = `${this._apiUrl}/${id}`;
     this._messageService.add(`HeroService: fetched hero id=${id}`);
     // return of(HEROES.find(hero => hero.id === id)); // old
     const hero = await this._apiService.get(url);
@@ -65,8 +66,9 @@ export class HeroService {
       // if not search term, return empty hero array.
       return of([]);
     }
-    return this._http.get<Hero[]>(`${this.heroesUrl}/?name=${term}`).pipe(
-      tap(_ => this._log(`found heroes matching "${term}"`)),
+    return this._http.get<Hero[]>(`${this._apiUrl}/?name=${term}`).pipe(
+      tap(result => this._checkResult(result, term)),
+      //tap(result => this._log(`found heroes matching "${result}"`)),
       catchError(this._handleError<Hero[]>('searchHeroes', []))
     );
   }
@@ -86,5 +88,13 @@ export class HeroService {
 
   private _log(message: String) {
     this._messageService.add(`HeroService: ${message}`);
+  }
+
+  private _checkResult(arg: any, term: string) {
+    if (arg.length) {
+      this._log(`found heroes matching "${term}"`);
+      return;
+    }
+    this._log(`NOT found heroes matching "${term}"`);
   }
 }
