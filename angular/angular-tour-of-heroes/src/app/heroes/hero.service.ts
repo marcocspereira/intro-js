@@ -8,6 +8,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { HEROES } from './../mocks/mock-heroes';
 import { debug } from 'util';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Injectable({
   providedIn: 'root'
@@ -22,7 +23,8 @@ export class HeroService {
   constructor(
     private _http: HttpClient,
     private _apiService: ApiService,
-    private _messageService: MessageService
+    private _messageService: MessageService,
+    private _snackBar: MatSnackBar
   ) {}
 
   async getHeroes(): Promise<Hero[]> {
@@ -87,7 +89,11 @@ export class HeroService {
   }
 
   private _log(message: String) {
-    this._messageService.add(`HeroService: ${message}`);
+    this._snackBar.open(`HeroService: ${message}`, null, {
+      duration: 2000,
+      horizontalPosition: 'right',
+      verticalPosition: 'top'
+    });
   }
 
   private _checkResult(arg: any, term: string) {

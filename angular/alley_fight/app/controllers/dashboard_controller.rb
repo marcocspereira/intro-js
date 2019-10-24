@@ -23,8 +23,7 @@ class DashboardController < ApplicationController
                    .joins(:winner)
                    .select('IF(fighters.id = winners_fights.id, fighter_2s_fights.name, fighters.name) as name, COUNT(*) as total_fights')
                    .group('name')
-                   .order(total_fights: :desc)
-    -last
+                   .order(total_fights: :desc).last
 
     render status: :ok, json: { fighter.name => fighter.total_fights }
   end
